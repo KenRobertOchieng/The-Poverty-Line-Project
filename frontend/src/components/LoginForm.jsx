@@ -11,10 +11,14 @@ function LoginForm() {
             </div>
         </div>
         <form className='login-form'>
-            <div className='form-group'>
+            <div className='form-group'>text
                 <label htmlFor="username or email address" className='form-label'>Username or email address</label>
                 <input type="text" id='username or email'  name='username or email' placeholder='Enter username or email' className='form-input'/>
                     </div>
+            <div className='form-group'> 
+                <label htmlFor="password" className='form-label'>Password</label>
+                <input type="password" name="password" id="password"  placeholder='Enter your password ' className='form-input'/>
+            </div>
         </form>
     </div>
   )
