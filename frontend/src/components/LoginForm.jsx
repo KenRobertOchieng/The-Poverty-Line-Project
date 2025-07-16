@@ -1,28 +1,43 @@
-import React from 'react'
+import React from 'react';
 
 function LoginForm() {
   return (
     <div className='login-container'>
-        <div className='login-header'>
-            <h2>Poverty Line</h2>
-            <p className='welcoming-text'> A step towards eradicating poverty</p>
-            <div className='divider-container'>
-                <div className='divider-line' ></div>
-            </div>
+      <div className='login-header'>
+        <h2 className='login-title'>Poverty Line</h2>
+        <p className='welcoming-text'>A STEP TOWARDS ERADICATING POVERTY</p>
+        <div className='divider-container'>
+          <div className='divider-line'></div>
         </div>
-        <form className='login-form'>
-            <div className='form-group'>text
-                <label htmlFor="username or email address" className='form-label'>Username or email address</label>
-                <input type="text" id='username or email'  name='username or email' placeholder='Enter username or email' className='form-input'/>
-                    </div>
-            <div className='form-group'> 
-                <label htmlFor="password" className='form-label'>Password</label>
-                <input type="password" name="password" id="password"  placeholder='Enter your password ' className='form-input'/>
-            </div>
-            <button type='submit' className='submit-button'>Log in</button>
-        </form>
+      </div>
+
+      <form className='login-form'>
+        <div className='form-group'>
+          <label htmlFor="username" className='form-label'>Username or email address</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter username or email"
+            className='form-input'
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor="password" className='form-label'>Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+            className='form-input'
+          />
+        </div>
+        <button type='submit' className='submit-button'>Log in</button>
+      </form>
+
+      <p className='login-footer'>You and me both trying to save our society</p>
     </div>
-  )
+  );
 }
 
-export default LoginForm
+export default LoginForm;
