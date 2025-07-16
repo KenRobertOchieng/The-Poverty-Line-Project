@@ -19,6 +19,7 @@ function LoginForm() {
                 <label htmlFor="password" className='form-label'>Password</label>
                 <input type="password" name="password" id="password"  placeholder='Enter your password ' className='form-input'/>
             </div>
+            <button type='submit' className='submit-button'>Log in</button>
         </form>
     </div>
   )
