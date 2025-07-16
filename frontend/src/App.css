@@ -129,3 +129,44 @@ body {
   font-style: italic;
   font-family: 'Crimson Text', serif;
 }
+
+.password-group {
+  position: relative;
+}
+
+.forgot-password {
+  text-align: right;
+}
+
+.forgot-password-link {
+  font-size: 0.85rem;
+  color: #c4b79a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-password-link:hover {
+  color: #d4b98a;
+  text-decoration: underline;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.checkbox-input {
+  width: 16px;
+  height: 16px;
+  accent-color: #d4b98a;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  font-family: 'Crimson Text', serif;
+  cursor: pointer;
+}
