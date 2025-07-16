@@ -22,7 +22,8 @@ function LoginForm() {
             className='form-input'
           />
         </div>
-        <div className='form-group'>
+
+        <div className='form-group password-group'>
           <label htmlFor="password" className='form-label'>Password</label>
           <input
             type="password"
@@ -31,8 +32,18 @@ function LoginForm() {
             placeholder="Enter your password"
             className='form-input'
           />
+      
         </div>
+
+        <div className='form-group remember-me'>
+          <input type="checkbox" id="rememberMe" name="rememberMe" className="checkbox-input" />
+          <label htmlFor="rememberMe" className="checkbox-label">Remember me</label>
+        </div>
+
         <button type='submit' className='submit-button'>Log in</button>
+           <div className="forgot-password">
+            <a href="#" className="forgot-password-link">Forgot password?</a>
+          </div>
       </form>
 
       <p className='login-footer'>You and me both trying to save our society</p>
