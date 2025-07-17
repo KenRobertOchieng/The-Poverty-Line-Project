@@ -35,6 +35,32 @@ const handleSubmit = (e) => {
 };
 
 return (
-    <div className="min-h-screen flex items-center justify-center"
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md w-full mac-w-sm">
+            <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">Create account</h2>
+            {error && (
+                <p className="text-red-500 text-sm text-center mb-2">{error}</p>
+            )}
+            {success && (
+                <p className="text-green-600 text-sm text-center mb-2">
+                    Registration successful!
+                </p>
+            )}
+            {/* Full Name Input*/}
+            <div className="mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <input 
+                type="text"
+                name="fullName"
+                placeholder="Enter full name"
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                />
+                
+            </div>
+        </form>
+    </div>
 )
 };
