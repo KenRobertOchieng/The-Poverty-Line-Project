@@ -37,6 +37,20 @@ const RecordForm = ({ editMode = false, recordToEdit}) => {
             //adding a new record 
             dispatch(addRecord(formData));
         }
-        
-    }
+        // reset form after submission
+        setFormData({ name:'', email: '', phone: ''});
+        setSelectedRecord(null);
+    };
+    return (
+        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md">
+            <h2 className="text-xl font-semibold mb-4">
+                {selectedRecord ? 'Edit Record' : 'Add New Record'}
+            </h2>
+
+            {/* Name Input */}
+            <div className="mb-4">
+                <label
+            </div>
+        </form>
+    )
 }
