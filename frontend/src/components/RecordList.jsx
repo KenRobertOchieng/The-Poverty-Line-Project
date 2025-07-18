@@ -19,7 +19,17 @@ const RecordList = ({ records, onEdit}) => {
             ):(
                 <ul className="space-y-4">
                     {records.map((record)) => (
-                        <li k
+                        <li key={record.id} clasName="border p-4 rounded-xl bg-gray-50 flex justify-between items-center">
+                            <div>
+                                <h3 className="text-lg font-semibold">{record.title}</h3>
+                                <p className="text-gray-700">{record.description}</p>
+                            </div>
+                            <div className="flex space-x-2">
+                                <button 
+                                onClick={() => onEdit(record)}
+                                className="px-3 py"
+                            </div>
+                        </li>
                     )}
                 </ul>
             )
