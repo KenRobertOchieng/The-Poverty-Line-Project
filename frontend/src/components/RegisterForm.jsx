@@ -75,9 +75,62 @@ return (
                 </div>
             {/* Username Input */}
             <div className="mb-3">
-                <label className
+                <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                <input
+                type="text"
+                name="username"
+                placeholder="Enter username"
+                value={formData.username}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                />
                 </div>
+                {/* Password Input */}
+                <div className="mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                value={formData.password}
+                onChange={handleChange}
+                required className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                
+                />
+
+                    </div>
+            {/* Confirm Password Input */}
+            <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                />
+            </div>
+            {/*Submit Button*/}
+            <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200">
+                {loading ? 'Registering...':'Submit'}
+                </button>
+
+                {/*Link to Login */}
+                <p className="text-sm text-center mt-3 text-gray-600">
+                    Already have an account?{''}
+                    <a href="/login" className="text-blue-600 hover:underline">
+                    Login
+                    </a>
+                </p>
         </form>
     </div>
 )
 };
+
+export default RegisterForm;
