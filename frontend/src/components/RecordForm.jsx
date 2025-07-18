@@ -49,8 +49,52 @@ const RecordForm = ({ editMode = false, recordToEdit}) => {
 
             {/* Name Input */}
             <div className="mb-4">
-                <label
+                <label htmlFor="name" className="block text-gray-700 mb-2">Name</label>
+                <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+                />
             </div>
+            {/* Email Input */}
+            <div className="mb-4">
+                <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+                <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+                />
+            </div>
+            {/* Phone Input */}
+            <div className="mb-4">
+                <label htmlFor="phone" className="block text-gray-700 mb-2">Phone</label>
+                <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+                />
+            </div>
+            {/* Submit Button */}
+            <button
+            type="Submit"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md"
+            >
+                {selectedRecord ? 'Update' : 'Add'} Record
+            </button>
         </form>
-    )
-}
+    );
+};
+
+export default RecordForm;
