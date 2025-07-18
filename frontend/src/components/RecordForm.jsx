@@ -20,5 +20,23 @@ const RecordForm = ({ editMode = false, recordToEdit}) => {
     }, [selectedRecord]);
 
     // handling input changes
-    con
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+    // handling form submission
+    const handleSubmit = (e) =>  {
+        e.preventDefault();
+        if (selectedRecord) {
+            //updating an existing record
+            dispatch(updateRecord(formData));
+        } else{
+            //adding a new record 
+            dispatch(addRecord(formData));
+        }
+        
+    }
 }
