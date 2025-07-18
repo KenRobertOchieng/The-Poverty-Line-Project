@@ -25,8 +25,20 @@ const recordSlice = createSlice({
             const indexToUpdate = state.records.findIndex(
                 (record) => record.id === action.payload.id
             );
-            if 
-        }
+            if (indexToUpdate !== -1) {
+                state.records[indexToUpdate] = action.payload;
+            }
+        },
+        // removing a record from the array using its id
+        deleteRecord: (state,action) => {
+            state.records = state.records.filter(
+                (record) => record.id !== action.payload
+            );
+        },
 
-    }
-})
+    },
+});
+
+//exporting actions
+export const {addRecord,updateRecord, deleteRecord} = recordSlice.actions;
+export default recordSlice.reducer;
