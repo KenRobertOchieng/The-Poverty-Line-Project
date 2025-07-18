@@ -1,11 +1,13 @@
 import React from 'react'
 import AOS from "aos";
 import "aos/dist/aos.css";
+// Remove duplicate Navbar import and initialization
 AOS.init({ duration: 1000 });
 
 const HomePage = () => {
   return (
-    <div className='container p-[10px] m-auto'>
+    <>
+      <div className='container p-[10px] m-auto'>
       <div className='grid grid-cols-2 gap-20 items-center'>
 
         {/* grid section col 1 */}
@@ -84,6 +86,7 @@ const HomePage = () => {
       </div>
  
     </div>
+    </>
   )
 }
 
