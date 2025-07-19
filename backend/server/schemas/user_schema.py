@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 from schemas_sqlalchemy import SQLAlchemyAutoSchema
 from models.user import User
 from schemas import fields, validate, validates_schema, ValidationError
 
 class UserSchema(SQLAlchemyAutoSchema):
+=======
+from backend.server.extensions import ma
+from backend.server.models.user import User
+from marshmallow import fields, validate, validates_schema, ValidationError
+
+class UserSchema(ma.SQLAlchemyAutoSchema):
+>>>>>>> master
     username = fields.String(required=True, validate=validate.Length(min=3, max=80))
     email = fields.Email(required=True)
     password = fields.String(required=True, validate=validate.Length(min=6), load_only=True)
@@ -11,7 +19,11 @@ class UserSchema(SQLAlchemyAutoSchema):
         model = User
         include_fk = True
         load_instance = True
+<<<<<<< HEAD
         exclude = ("profile", "records")  # Prevents recursive serialization
+=======
+        include_relationships = True
+>>>>>>> master
 
     @validates_schema
     def validate_unique_fields(self, data, **kwargs):

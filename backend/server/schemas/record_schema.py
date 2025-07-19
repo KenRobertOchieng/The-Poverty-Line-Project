@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from models.record import Record
 from marshmallow import fields, validate, ValidationError, validates_schema
 
 class RecordSchema(SQLAlchemyAutoSchema):
+=======
+from backend.server.extensions import ma
+from backend.server.models.record import Record
+from marshmallow import fields, validate, ValidationError, validates_schema
+
+class RecordSchema(ma.SQLAlchemyAutoSchema):
+>>>>>>> master
     income = fields.Float(
         required=True,
         validate=validate.Range(min=0)

@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from models.profile import Profile
 from marshmallow import fields, validate, ValidationError, validates_schema
 
 class ProfileSchema(SQLAlchemyAutoSchema):
+=======
+from backend.server.models.profile import Profile
+from backend.server.extensions import ma
+from marshmallow import fields, validate, ValidationError, validates_schema
+
+class ProfileSchema(ma.SQLAlchemyAutoSchema):
+>>>>>>> master
     age = fields.Integer(required=True, validate=validate.Range(min=0, max=120))
     gender = fields.String(
         required=True,
