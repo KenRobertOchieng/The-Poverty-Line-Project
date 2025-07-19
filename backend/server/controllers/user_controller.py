@@ -1,20 +1,20 @@
 from flask import Blueprint, request, jsonify
-from models.record import Record, RecordSchema
-from models import db
+from backend.server.models.user import User
+from backend.server.schemas.user_schema import UserSchema
 
-record_bp = Blueprint('record', 'record', url_prefix='/record')
-record_schema = RecordSchema()
-records_schema = RecordSchema(many=True)
+from backend.server.extensions import db
 
-@record_bp.route('/', methods=['POST'])
-def add_record():
-    data = request.get_json()
-    new_record = Record(**data)
-    db.session.add(new_record)
-    db.session.commit()
-    return record_schema.jsonify(new_record), 201
+user_bp = Blueprint('user',__name__,url_prefix='/users')
+users_schema = UserSchema(many=True)
+user_schema = UserSchema()
 
-@record_bp.route('/<int:user_id>', methods=['GET'])
-def get_records(user_id):
-    records = Record.query.filter_by(user_id=user_id).all()
-    return records_schema.jsonify(records)
+@user_bp.route('',methods=['GET'])
+def get_all_users():
+ records=User.query.all()
+ return users_schema.dump(records),200
+
+
+@user_bp.route('/<int:user_id>', methods=['GET'])
+def get_user(user_id):
+    user = User.query.get_or_404(user_id)
+    return user_schema.jsonify(user),200
