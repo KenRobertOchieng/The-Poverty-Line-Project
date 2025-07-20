@@ -18,3 +18,12 @@ def get_all_users():
 def get_user(user_id):
     user = User.query.get_or_404(user_id)
     return user_schema.jsonify(user),200
+
+@user_bp.route('/<int:user_id>',methods=['DELETE'])
+def delete_user(user_id):
+    user_delete = User.query.get_or_404(user_id)
+    db.session.delete(user_delete)
+    db.session.commit()
+    return jsonify({ "id": user_id }),200
+
+   
