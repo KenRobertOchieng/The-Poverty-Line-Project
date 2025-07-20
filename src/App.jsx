@@ -9,6 +9,7 @@ import RegisterPage from './pages/RegisterPage';
 import RecordsPage from './pages/RecordsPage';
 import UserPage from './pages/UserPage';
 import NotFound from './pages/NotFound';
+import UsersPage from './pages/UsersPage';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -29,7 +30,9 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/records" element={<RecordsPage />} />
+            <Route path="/user/:userId" element={<UserPage />} />
             <Route path="/user" element={<UserPage />} />
+            <Route path="/users" element={<UsersPage />} />
             <Route path="/notfound" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

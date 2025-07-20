@@ -58,10 +58,34 @@ const HomePage = () => {
 
         <div className='grid grid-cols-2 gap-10'>
 
-          <div className='grid grid-cols-2 '><img data-aos="zoom-out" data-aos-delay="300"  className='rounded-full h-[170px] bg-transparent' src="src/imgs/1e4708bc-5cad-4fd8-ae5b-ff21471f93da_prev_ui.png" alt="" /><p data-aos="fade-down" data-aos-delay="100"  className='lg:text-3xl text-gray-900'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae in tenetur, magni consequatur cum corrupti dolores odit architecto nam accusamus facilis, nisi omnis voluptatum. Nihil doloremque nemo eius omnis labore. <h1 className='text-green-400 pt-5'>Ken Ochieng</h1></p></div>
-          <div className='grid grid-cols-2'><img data-aos="zoom-out" data-aos-delay="300"  className='rounded-full h-[170px] bg-transparent' src="src/imgs/9d8fa3b3-ea36-4f04-a043-4b2b0ed29022_prev_ui.png" alt="" /><p data-aos="fade-down" data-aos-delay="200"  className='lg:text-3xl text-gray-900'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae deserunt sequi sunt sint. Vel id ratione dolore est necessitatibus, reiciendis ullam culpa quasi molestiae voluptatum, nesciunt quam officia error quaerat. <h1 className='text-green-400 pt-5'>Eliud Wauna</h1></p></div>
-          <div className='grid grid-cols-2'><img data-aos="zoom-out" data-aos-delay="300"  className='rounded-full h-[170px] bg-transparent' src="src/imgs/d1be1549-6684-4e43-af6b-41bc21b9a006_prev_ui.png" alt="" /><p data-aos="fade-down" data-aos-delay="300"  className='lg:text-3xl text-gray-900'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut nulla dignissimos dolorum vitae. Est incidunt soluta officia dolores enim repellat sunt, veritatis facere, quam, dolorem id voluptates veniam provident et <h1 className='text-green-400 pt-5'>Martin Otiende</h1></p></div>
-          <div className='grid grid-cols-2'><img data-aos="zoom-out" data-aos-delay="300" className='rounded-full h-[170px] bg-transparent' src="src/imgs/f58a0f5f-8bfc-4ea6-8574-26bbd4350767_prev_ui.png" alt="" /><p data-aos="fade-down" data-aos-delay="400"  className='lg:text-3xl text-gray-900'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et iusto nobis repellendus animi, fuga illum est provident laudantium quam ea deserunt, sunt fugit nihil fugiat odit totam quia molestias accusantium?<h1 className='text-green-400 pt-5'>Geofrey Kimani</h1></p></div>
+          <div className='grid grid-cols-2 '>
+            <img data-aos="zoom-out" data-aos-delay="300"  className='rounded-full h-[170px] bg-transparent' src="src/imgs/1e4708bc-5cad-4fd8-ae5b-ff21471f93da_prev_ui.png" alt="" />
+            <div>
+              <p data-aos="fade-down" data-aos-delay="100"  className='lg:text-3xl text-gray-900'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae in tenetur, magni consequatur cum corrupti dolores odit architecto nam accusamus facilis, nisi omnis voluptatum. Nihil doloremque nemo eius omnis labore.</p>
+              <h1 className='text-green-400 pt-5'>Ken Ochieng</h1>
+            </div>
+          </div>
+          <div className='grid grid-cols-2'>
+            <img data-aos="zoom-out" data-aos-delay="300"  className='rounded-full h-[170px] bg-transparent' src="src/imgs/9d8fa3b3-ea36-4f04-a043-4b2b0ed29022_prev_ui.png" alt="" />
+            <div>
+              <p data-aos="fade-down" data-aos-delay="200"  className='lg:text-3xl text-gray-900'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae deserunt sequi sunt sint. Vel id ratione dolore est necessitatibus, reiciendis ullam culpa quasi molestiae voluptatum, nesciunt quam officia error quaerat.</p>
+              <h1 className='text-green-400 pt-5'>Eliud Wauna</h1>
+            </div>
+          </div>
+          <div className='grid grid-cols-2'>
+            <img data-aos="zoom-out" data-aos-delay="300"  className='rounded-full h-[170px] bg-transparent' src="src/imgs/d1be1549-6684-4e43-af6b-41bc21b9a006_prev_ui.png" alt="" />
+            <div>
+              <p data-aos="fade-down" data-aos-delay="300"  className='lg:text-3xl text-gray-900'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut nulla dignissimos dolorum vitae. Est incidunt soluta officia dolores enim repellat sunt, veritatis facere, quam, dolorem id voluptates veniam provident et</p>
+              <h1 className='text-green-400 pt-5'>Martin Otiende</h1>
+            </div>
+          </div>
+          <div className='grid grid-cols-2'>
+            <img data-aos="zoom-out" data-aos-delay="300" className='rounded-full h-[170px] bg-transparent' src="src/imgs/f58a0f5f-8bfc-4ea6-8574-26bbd4350767_prev_ui.png" alt="" />
+            <div>
+              <p data-aos="fade-down" data-aos-delay="400"  className='lg:text-3xl text-gray-900'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et iusto nobis repellendus animi, fuga illum est provident laudantium quam ea deserunt, sunt fugit nihil fugiat odit totam quia molestias accusantium?</p>
+              <h1 className='text-green-400 pt-5'>Geofrey Kimani</h1>
+            </div>
+          </div>
 
         </div>
 
