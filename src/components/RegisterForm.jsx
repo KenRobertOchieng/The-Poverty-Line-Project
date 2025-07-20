@@ -35,7 +35,7 @@ const handleSubmit = (e) => {
 };
 
 return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 rounded-3xl">
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md w-full mac-w-sm">
             <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">Create account</h2>
             {error && (
