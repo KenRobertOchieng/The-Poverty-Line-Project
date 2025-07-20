@@ -14,7 +14,7 @@ const HomePage = () => {
 
         <div className='font-bold lg:text-4xl font-sans'>
           <h1 data-aos="fade-down" data-aos-delay="200" className='lg:text-4xl text-cyan-950 pb-25'>Empowering Communities One data Point at a Time</h1>
-          <p className='text-gray-900' data-aos="fade-down" data-aos-delay="400" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit soluta in inventore perferendis itaque tempora pariatur harum, sint excepturi numquam hic delectus cupiditate velit facilis quas laboriosam? Obcaecati, doloribus nesciunt.</p>
+          <p className='text-gray-900' data-aos="fade-down" data-aos-delay="400" >n an era where every number tells a story, our platform empowers governments, NGOs, and local leaders with the insights they need to make a real difference. By capturing individual income records, mapping social backgrounds, and classifying vulnerability levels, we turn raw data into targeted action plans. This holistic view uncovers hidden pockets of need, guides resource allocation, and measures the impact of every program. Together, we build a future where no one is left behind—because when we track the real numbers, we unlock real change.</p>
           
         </div>
 
@@ -32,7 +32,7 @@ const HomePage = () => {
 
         <div className='grid grid-cols-2 md:grid-cols-3 gap-10'>
           
-          <div data-aos="fade-down" data-aos-delay="200" className='w-full h-[500px] shadow-2xl rounded-4xl bg-cyan-950'><img className='rounded-full m-auto h-[190px] animate-pulse' src="src/imgs/012b64bb-6067-4f03-8fb1-f50fbadf15a3.jpeg" alt="" srcSet="" /><p className='text-center md:text-2xl py-3'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In unde omnis neque assumenda eum mollitia fugit architecto minima eius, necessitatibus natus. Rem dolores quos aliquam quam. Quo natus dolorum alias!</p></div>
+          <div data-aos="fade-down" data-aos-delay="200" className='w-full h-[500px] shadow-2xl rounded-4xl bg-cyan-950'><img className='rounded-full m-auto h-[190px] animate-pulse' src="src/imgs/012b64bb-6067-4f03-8fb1-f50fbadf15a3.jpeg" alt=""/><p className='text-center md:text-2xl py-3'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In unde omnis neque assumenda eum mollitia fugit architecto minima eius, necessitatibus natus. Rem dolores quos aliquam quam. Quo natus dolorum alias!</p></div>
           <div data-aos="fade-down" data-aos-delay="200"  className='w-full h-[500px] shadow-2xl rounded-4xl bg-cyan-950 '><img className='rounded-full m-auto h-[190px] animate-pulse' src="src/imgs/212a2c6e-9f1a-463f-9f8a-8f602129948d.jpeg" alt="" /><p className='text-center md:text-2xl py-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam non dicta fuga repellat sit ab! Aspernatur, perspiciatis vitae. Magnam laborum quibusdam velit eum cumque? Commodi consequatur cumque excepturi eligendi nemo?</p></div>
           <div data-aos="fade-down" data-aos-delay="200"  className='w-full h-[500px] shadow-2xl rounded-4xl bg-cyan-950'><img className='rounded-full m-auto items-center h-[190px] animate-pulse' src="src/imgs/Vetor Ícone de ponto de pino com símbolo….jpeg" alt="" /><p className='text-center md:text-2xl py-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam voluptatum sit nam qui reprehenderit similique eveniet repellat numquam quod? Fuga vel voluptates quod nostrum autem, veritatis vero nam rerum reiciendis!</p></div>
 
@@ -45,7 +45,7 @@ const HomePage = () => {
         <div className='grid grid-cols-2 '>
 
           {/* section 1 */}
-          <div><img data-aos="fade-down" data-aos-delay="200" className='object-cover w-[700px] bg-transparent animate-bounce duration-1000' src="src/imgs/kmanatham about happy black woman jumping, 3d character, money, body png, and money 3d 12120514_prev_ui.png" alt="" /></div>
+          <div><img data-aos="fade-down" data-aos-delay="200" className='object-cover w-[700px] bg-transparent' src="src/imgs/kmanatham about happy black woman jumping, 3d character, money, body png, and money 3d 12120514_prev_ui.png" alt="" /></div>
           {/* section 2 */}
           <div className='text-center m-auto'><h1 data-aos="fade-down" data-aos-delay="100" className='mb-25 text-4xl text-blue-400 font-bold'>Turning Data into Actionable Impact</h1>
           <p data-aos="fade-down" data-aos-delay="200" className='text-4xl text-gray-400'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse amet qui error laboriosam vitae facere maxime quia? Quae, dicta sit. Minus nisi cumque ad culpa perferendis dolores eius nesciunt rerum.</p></div>
@@ -95,7 +95,7 @@ const HomePage = () => {
         <div className='grid lg:grid-cols-3 gap-10'>
           {/* card sections */}
 
-          <div data-aos="fade-down" data-aos-delay="100" className='w-full h-[400px] rounded-4xl bg-cyan-950'><img className='rounded-[100%] m-auto h-[190px] -translate-y-14 animate-pulse bg-transparent' src="src/imgs/138e43db-bdc7-4d91-ad5f-6a037b0cae73_prev_ui.png" alt="" srcSet="" /><p className='text-center md:text-2xl py-20'>Stevo SimpleBoy</p></div>
+          <div data-aos="fade-down" data-aos-delay="100" className='w-full h-[400px] rounded-4xl bg-cyan-950'><img className='rounded-[100%] m-auto h-[190px] -translate-y-14 animate-pulse bg-transparent' src="src/imgs/138e43db-bdc7-4d91-ad5f-6a037b0cae73_prev_ui.png" alt=""/><p className='text-center md:text-2xl py-20'>Stevo SimpleBoy</p></div>
           <div data-aos="fade-down" data-aos-delay="100"  className='w-full h-[400px] rounded-4xl bg-cyan-950'><img className='rounded-[100%] m-auto h-[190px] -translate-y-14 animate-pulse bg-transparent' src="src/imgs/8d8c1ec3-43d0-4b53-828b-3ace4c281fd3_prev_ui.png" alt="" /><p className='text-center md:text-2xl py-20'>Malaika Atieno</p></div>
           <div data-aos="fade-down" data-aos-delay="100"  className='w-full h-[400px] rounded-4xl bg-cyan-950'><img className='rounde-[100%] m-auto h-[190px] -translate-y-14 animate-pulse bg-transparent' src="src/imgs/0b5c0e83-902f-4b04-9ac6-65d3cc9f5e7f_prev_ui.png" alt="" /><p className='text-center md:text-2xl py-20'>Zeina Yoshua</p></div>
 
