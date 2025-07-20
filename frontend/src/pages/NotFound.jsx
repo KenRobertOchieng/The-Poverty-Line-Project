@@ -9,12 +9,12 @@ const NotFound = () => {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      background: 'linear-gradient(135deg, #f8fafc 0%, #e0eafc 100%)',
+      background: '#374151', /* bg-gray-700 */
       padding: '2rem',
     }}>
       <h1 style={{ fontSize: '3rem', fontWeight: 'bold', color: '#e53e3e', marginBottom: '1rem' }}>404</h1>
-      <h2 style={{ fontSize: '2rem', color: '#2d3748', marginBottom: '1rem' }}>Page Not Found</h2>
-      <p style={{ fontSize: '1.2rem', color: '#4a5568', maxWidth: '500px', textAlign: 'center', marginBottom: '2rem' }}>
+      <h2 style={{ fontSize: '2rem', color: '#f3f4f6', marginBottom: '1rem' }}>Page Not Found</h2>
+      <p style={{ fontSize: '1.2rem', color: '#d1d5db', maxWidth: '500px', textAlign: 'center', marginBottom: '2rem' }}>
         Sorry, the page you are looking for does not exist. Let's get you back to making a difference!
       </p>
       <Link to="/" style={{
@@ -29,7 +29,7 @@ const NotFound = () => {
       }}>
         Go Home
       </Link>
-      <div style={{ marginTop: '2rem', fontStyle: 'italic', color: '#718096', fontSize: '1rem', maxWidth: '400px', textAlign: 'center' }}>
+      <div style={{ marginTop: '2rem', fontStyle: 'italic', color: '#9ca3af', fontSize: '1rem', maxWidth: '400px', textAlign: 'center' }}>
         "The best way to find yourself is to lose yourself in the service of others."<br />
         <span style={{ fontSize: '0.9rem', opacity: 0.7 }}>- Mahatma Gandhi</span>
       </div>
@@ -38,18 +38,3 @@ const NotFound = () => {
 };
 
 export default NotFound;
-
-// Temporary RecordsPage and UserPage for routing
-export const RecordsPage = () => (
-  <div style={{ padding: '2rem', textAlign: 'center' }}>
-    <h2>Records</h2>
-    <p>This is a placeholder for the Records page.</p>
-  </div>
-);
-
-export const UserPage = () => (
-  <div style={{ padding: '2rem', textAlign: 'center' }}>
-    <h2>User</h2>
-    <p>This is a placeholder for the User page.</p>
-  </div>
-);
