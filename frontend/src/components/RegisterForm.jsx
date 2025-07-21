@@ -124,7 +124,7 @@ return (
                 {/*Link to Login */}
                 <p className="text-sm text-center mt-3 text-gray-600">
                     Already have an account?{''}
-                    <a href="/login" className="text-blue-600 hover:underline">
+                    <a href="/loginform" className="text-blue-600 hover:underline">
                     Login
                     </a>
                 </p>
