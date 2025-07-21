@@ -7,7 +7,8 @@ const UserPage = () => {
   const { userId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { selectedUser, users, loading, error } = useSelector(state => state.userListing);
+  const userListingState = useSelector(state => state.userListing) || {};
+  const { users = [], loading = false, error = null } = userListingState;
   const [useMockData, setUseMockData] = useState(false);
 
   useEffect(() => {
@@ -25,8 +26,8 @@ const UserPage = () => {
     }
   }, [dispatch, userId, navigate, useMockData]);
 
-  // Find user from the users list if selectedUser is not available
-  const user = selectedUser || (users.find(u => u.id === parseInt(userId)) || {});
+  // Find user from the users list
+  const user = users.find(u => u.id === parseInt(userId)) || {};
 
   // Format date for display
   const formatDate = (dateString) => {
@@ -73,7 +74,7 @@ const UserPage = () => {
           <div className="p-6 border-b border-gray-700">
             <div className="flex justify-between items-start">
               <div>
-                <h1 className="text-3xl font-bold text-white mb-2">{user.username}</h1>
+                <h1 className="text-3xl font-bold text-white mb-2">{user.name || user.username}</h1>
                 <p className="text-gray-300">{user.email}</p>
               </div>
               <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">ID: {user.id}</span>
@@ -86,7 +87,7 @@ const UserPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-gray-800 p-4 rounded">
                 <p className="text-gray-400 text-sm">Joined</p>
-                <p className="text-white">{formatDate(user.timestamp)}</p>
+                <p className="text-white">{user.timestamp ? formatDate(user.timestamp) : 'N/A'}</p>
               </div>
               
               <div className="bg-gray-800 p-4 rounded">

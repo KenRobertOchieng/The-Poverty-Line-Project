@@ -1,5 +1,16 @@
 // src/store.js
 import { configureStore } from '@reduxjs/toolkit'
+<<<<<<< HEAD
+import authReducer from './features/auth/authSlice'
+import recordsReducer from './features/records/recordSlice'
+import userListingReducer from './features/users/userListingSlice'
+
+export const store = configureStore({
+  reducer: {
+    auth: authReducer,          // for state.auth.loading, error, user
+    records: recordsReducer,    // for state.records.records, status, error
+    userListing: userListingReducer  // for state.userListing.users, loading, error
+=======
 import authReducer        from './features/auth/authSlice'
 import recordsReducer     from './features/records/recordSlice'
 import userListingReducer from './features/users/userListingSlice'
@@ -25,6 +36,7 @@ export const store = configureStore({
     auth:         authReducer,
     records:      recordsReducer,
     userListing:  userListingReducer,
+>>>>>>> 4f5d20278e02a6ed501a846d3709dc24a3dce8ef
   },
   preloadedState, 
 })
