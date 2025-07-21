@@ -28,6 +28,11 @@ with app.app_context():
     user6 = User(username='zakayo', email='zakayo@gmail.com')
     user6.thee_password('1124889')
 
+    user7 = User(username='omolo254', email='omolo@gmail.com')
+    user7.thee_password('48531031')
+
+    user8 = User(username='amanda967', email='amanda@gmail.com')
+    user8.thee_password('8412500')
 
     # Assign profiles
     profile1 = Profile(age=28, gender='Male',social_category='Youth',user=user1)
@@ -36,6 +41,8 @@ with app.app_context():
     profile4 = Profile(age=30, gender='Male',social_category='Adult',user=user4)
     profile5 = Profile(age=27, gender='Female',social_category='Youth',user=user5)
     profile6 = Profile(age=45, gender='Male',social_category='Senior',user=user6)
+    profile6 = Profile(age=19, gender='Male',social_category='Senior',user=user7)
+
 
     # Assign one record each
     user1.record.append(
@@ -56,7 +63,18 @@ with app.app_context():
     user6.record.append(
         Record(income='220', poverty_classification='moderate')
     )
+    user7.record.append(
+        Record(income='700', poverty_classification='above-line')
+    )
+
+    user8.record.append(
+        Record(income='500', poverty_classification='extreme')
+    )
+    
+
+    
 
 
-    db.session.add_all([user1,user2,user3,user4,user5,user6,profile1,profile2,profile3,profile4,profile5,profile6])
+
+    db.session.add_all([user1,user2,user3,user4,user5,user6,user7,user8,profile1,profile2,profile3,profile4,profile5,profile6])
     db.session.commit()

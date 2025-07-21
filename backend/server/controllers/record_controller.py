@@ -2,6 +2,7 @@ from flask import Blueprint, request , jsonify
 from backend.server.models.record import Record
 from backend.server.schemas.record_schema import RecordSchema
 from backend.server.extensions import db
+from flask_jwt_extended import jwt_required ,get_jwt_identity
 
 record_bp = Blueprint('record',__name__, url_prefix='/records')
 records_schema = RecordSchema(many=True)
@@ -14,7 +15,12 @@ def get_all_records():
 
 
 @record_bp.route('', methods=['POST'])
+@jwt_required()
 def add_record():
+    current_record_post=get_jwt_identity()
+
+    data['user_id']=current_record_post
+
     data = request.get_json()
     new_record = Record(**data)
     db.session.add(new_record)
@@ -27,8 +33,31 @@ def get_records(record_id):
     return record_schema.jsonify(records),200
 
 @record_bp.route('/<int:record_id>',methods=['DELETE'])
+@jwt_required()
 def delete_records(record_id):
    delete_record=Record.query.get_or_404(record_id)
+   
+   current_record_deleting=get_jwt_identity()
+
+   if delete_record.user_id !=current_record_deleting:
+        return jsonify({"msg": "Unauthorized"}), 403
    db.session.delete(delete_record)
    db.session.commit()
    return jsonify({ "id": record_id })
+
+
+@record_bp.route('/<int:record_id>',methods=['PATCH'])
+@jwt_required()
+def patch_user(record_id):
+    user_patch = Record.query.get_or_404(record_id)
+
+    the_current_logged_in_user_patch_record=get_jwt_identity()
+
+    if user_patch.user_id != the_current_logged_in_user_patch_record:
+        return jsonify({"msg": "Unauthorized"}), 403
+    db.session.add(user_patch)
+    db.session.commit()
+
+    return jsonify({"msg": "update is successful"}),200
+
+
