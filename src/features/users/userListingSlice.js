@@ -1,136 +1,112 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+// src/features/users/userListingSlice.js
+import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit'
 
-// API endpoint for users
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'http://localhost:5000'
+const getMockUsers = () => [
+  { id: 1, username: 'EliudRotich', email: 'eliud@example.com', timestamp: null },
+  { id: 2, username: 'JaneDoe',     email: 'jane@example.com',  timestamp: null },
+  { id: 3, username: 'JohnSmith',   email: 'john@example.com',  timestamp: null },
+]
 
 // Fetch all users
-export const fetchUsers = createAsyncThunk('userListing/fetchUsers', async (_, { rejectWithValue }) => {
-  try {
-    const response = await fetch(`${API_URL}/users`);
-    
-    if (!response.ok) {
-      throw new Error('Failed to fetch users');
+export const fetchUsers = createAsyncThunk(
+  'userListing/fetchUsers',
+  async (_, { rejectWithValue }) => {
+    try {
+      const res  = await fetch(`${API_URL}/users`)
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.message || 'Failed to fetch users')
+      return data.message  // your backend returns { message: [ ... ] }
+    } catch (err) {
+      return rejectWithValue(err.message)
     }
-    
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    return rejectWithValue(error.message);
   }
-});
+)
 
-// Fetch a single user by ID
-export const fetchUserById = createAsyncThunk('userListing/fetchUserById', async (userId, { rejectWithValue }) => {
-  try {
-    const response = await fetch(`${API_URL}/users/${userId}`);
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch user with ID: ${userId}`);
+// Fetch one user by ID
+export const fetchUserById = createAsyncThunk(
+  'userListing/fetchUserById',
+  async (userId, { rejectWithValue }) => {
+    try {
+      const res  = await fetch(`${API_URL}/users/${userId}`)
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.message || `User ${userId} not found`)
+      // sometimes backend wraps single in array
+      return Array.isArray(data.message) ? data.message[0] : data.message
+    } catch (err) {
+      return rejectWithValue(err.message)
     }
-    
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    return rejectWithValue(error.message);
   }
-});
+)
 
-// If API is not yet available, use this function to get mock data
-export const getMockUsers = () => {
-  return [
-    { id: 1, name: 'Eliud Rotich', email: 'eliud@example.com' },
-    { id: 2, name: 'Jane Doe', email: 'jane@example.com' },
-    { id: 3, name: 'John Smith', email: 'john@example.com' },
-  ];
-};
+const initialState = {
+  users: [],
+  selectedUser: null,
+  loading: false,
+  error: null,
+  searchTerm: '',
+  sortBy: 'username',
+  sortDirection: 'asc',
+}
 
 const userListingSlice = createSlice({
   name: 'userListing',
-  initialState: {
-    users: [],
-    selectedUser: null,
-    loading: false,
-    error: null,
-    searchTerm: '',
-    sortBy: 'name',
-    sortDirection: 'asc'
-  },
+  initialState,
   reducers: {
-    // Set search term for filtering users
-    setSearchTerm: (state, action) => {
-      state.searchTerm = action.payload;
+    setSearchTerm:    (s, a) => { s.searchTerm = a.payload },
+    setSortCriteria: (s, a) => {
+      s.sortBy        = a.payload.sortBy
+      s.sortDirection = a.payload.sortDirection
     },
-    // Set sort criteria
-    setSortCriteria: (state, action) => {
-      const { sortBy, sortDirection } = action.payload;
-      state.sortBy = sortBy;
-      state.sortDirection = sortDirection;
+    setMockUsers:     (s) => {
+      s.users    = getMockUsers()
+      s.loading  = false
+      s.error    = null
     },
-    // Use mock data when API is not available
-    setMockUsers: (state) => {
-      state.users = getMockUsers();
-      state.loading = false;
-      state.error = null;
-    }
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      // Handle fetchUsers cases
-      .addCase(fetchUsers.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchUsers.fulfilled, (state, action) => {
-        state.loading = false;
-        state.users = action.payload;
-      })
-      .addCase(fetchUsers.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-        // Fallback to mock data if API fails
-        state.users = getMockUsers();
-      })
-      // Handle fetchUserById cases
-      .addCase(fetchUserById.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchUserById.fulfilled, (state, action) => {
-        state.loading = false;
-        state.selectedUser = action.payload;
-      })
-      .addCase(fetchUserById.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      });
-  },
-});
+      // ---- fetchUsers
+      .addCase(fetchUsers.pending,   (s) =>   { s.loading = true;  s.error = null })
+      .addCase(fetchUsers.fulfilled, (s, a) => { s.loading = false; s.users = a.payload })
+      .addCase(fetchUsers.rejected,  (s, a) => { s.loading = false; s.error = a.payload; s.users = getMockUsers() })
 
-export const { setSearchTerm, setSortCriteria, setMockUsers } = userListingSlice.actions;
+      // ---- fetchUserById
+      .addCase(fetchUserById.pending,   (s) =>   { s.loading = true;  s.error = null; s.selectedUser = null })
+      .addCase(fetchUserById.fulfilled, (s, a) => { s.loading = false; s.selectedUser = a.payload })
+      .addCase(fetchUserById.rejected,  (s, a) => { s.loading = false; s.error = a.payload })
+  }
+})
 
-// Selector to get filtered and sorted users
-export const selectFilteredUsers = (state) => {
-  const { users, searchTerm, sortBy, sortDirection } = state.userListing;
-  
-  // Filter users based on search term
-  const filteredUsers = users.filter(user => 
-    user.name?.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    user.email?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-  
-  // Sort users based on sort criteria
-  const sortedUsers = [...filteredUsers].sort((a, b) => {
-    const valueA = a[sortBy] || '';
-    const valueB = b[sortBy] || '';
-    
-    if (sortDirection === 'asc') {
-      return valueA.localeCompare(valueB);
-    } else {
-      return valueB.localeCompare(valueA);
-    }
-  });
-  
-  return sortedUsers;
-};
+export const {
+  setSearchTerm,
+  setSortCriteria,
+  setMockUsers,
+} = userListingSlice.actions
 
-export default userListingSlice.reducer;
+// Input selectors
+const selectUsers         = state => state.userListing.users
+const selectSearchTerm    = state => state.userListing.searchTerm
+const selectSortBy        = state => state.userListing.sortBy
+const selectSortDirection = state => state.userListing.sortDirection
+
+// Memoized, filtered + sorted list
+export const selectFilteredUsers = createSelector(
+  [ selectUsers, selectSearchTerm, selectSortBy, selectSortDirection ],
+  (users = [], searchTerm, sortBy, sortDirection) => {
+    const list = Array.isArray(users) ? users : []
+    const filtered = list.filter(u =>
+      u.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      u.email.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    return filtered.sort((a, b) => {
+      const aVal = (a[sortBy] || '').toLowerCase()
+      const bVal = (b[sortBy] || '').toLowerCase()
+      if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1
+      if (aVal > bVal) return sortDirection === 'asc' ?  1 : -1
+      return 0
+    })
+  }
+)
+
+export default userListingSlice.reducer
