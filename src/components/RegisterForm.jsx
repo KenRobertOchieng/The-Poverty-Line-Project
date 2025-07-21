@@ -35,101 +35,259 @@ const handleSubmit = (e) => {
 };
 
 return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 rounded-3xl">
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md w-full mac-w-sm">
-            <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">Create account</h2>
-            {error && (
-                <p className="text-red-500 text-sm text-center mb-2">{error}</p>
-            )}
-            {success && (
-                <p className="text-green-600 text-sm text-center mb-2">
-                    Registration successful!
-                </p>
-            )}
-            {/* Full Name Input*/}
-            <div className="mb-3">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                <input 
-                type="text"
-                name="fullName"
-                placeholder="Enter full name"
-                value={formData.fullName}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-                />
+    <form onSubmit={handleSubmit} style={{
+      width: '100%',
+    }}>
+      {error && (
+        <div style={{
+          backgroundColor: '#7f1d1d',
+          color: '#fecaca',
+          padding: '0.75rem',
+          borderRadius: '0.375rem',
+          marginBottom: '1rem',
+          fontSize: '0.875rem'
+        }}>
+          {error}
+        </div>
+      )}
+      
+      {success && (
+        <div style={{
+          backgroundColor: '#064e3b',
+          color: '#a7f3d0',
+          padding: '0.75rem',
+          borderRadius: '0.375rem',
+          marginBottom: '1rem',
+          fontSize: '0.875rem'
+        }}>
+          Registration successful!
+        </div>
+      )}
+      
+      {/* Full Name Input */}
+      <div style={{
+        marginBottom: '1.5rem'
+      }}>
+        <label 
+          htmlFor="fullName" 
+          style={{
+            display: 'block',
+            marginBottom: '0.5rem',
+            fontSize: '0.875rem',
+            color: '#D1D5DB',
+            fontWeight: '500'
+          }}
+        >
+          Full Name
+        </label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          value={formData.fullName}
+          onChange={handleChange}
+          required
+          style={{
+            width: '100%',
+            padding: '0.75rem',
+            backgroundColor: '#374151',
+            color: 'white',
+            border: '1px solid #4B5563',
+            borderRadius: '0.375rem',
+            fontSize: '1rem',
+            outline: 'none'
+          }}
+        />
+      </div>
 
-            </div>
-            {/* Email Input */}
-            <div className="mb-3">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input
-                type="email"
-                name="email"
-                placeholder="Enter email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-                />
-                </div>
-            {/* Username Input */}
-            <div className="mb-3">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
-                <input
-                type="text"
-                name="username"
-                placeholder="Enter username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-                />
-                </div>
-                {/* Password Input */}
-                <div className="mb-3">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
-                <input
-                type="password"
-                name="password"
-                placeholder="Enter password"
-                value={formData.password}
-                onChange={handleChange}
-                required className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-                
-                />
+      {/* Email Input */}
+      <div style={{
+        marginBottom: '1.5rem'
+      }}>
+        <label 
+          htmlFor="email" 
+          style={{
+            display: 'block',
+            marginBottom: '0.5rem',
+            fontSize: '0.875rem',
+            color: '#D1D5DB',
+            fontWeight: '500'
+          }}
+        >
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          style={{
+            width: '100%',
+            padding: '0.75rem',
+            backgroundColor: '#374151',
+            color: 'white',
+            border: '1px solid #4B5563',
+            borderRadius: '0.375rem',
+            fontSize: '1rem',
+            outline: 'none'
+          }}
+        />
+      </div>
 
-                    </div>
-            {/* Confirm Password Input */}
-            <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
-                <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-                />
-            </div>
-            {/*Submit Button*/}
-            <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200">
-                {loading ? 'Registering...':'Submit'}
-                </button>
+      {/* Username Input */}
+      <div style={{
+        marginBottom: '1.5rem'
+      }}>
+        <label 
+          htmlFor="username" 
+          style={{
+            display: 'block',
+            marginBottom: '0.5rem',
+            fontSize: '0.875rem',
+            color: '#D1D5DB',
+            fontWeight: '500'
+          }}
+        >
+          Username
+        </label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          required
+          style={{
+            width: '100%',
+            padding: '0.75rem',
+            backgroundColor: '#374151',
+            color: 'white',
+            border: '1px solid #4B5563',
+            borderRadius: '0.375rem',
+            fontSize: '1rem',
+            outline: 'none'
+          }}
+        />
+      </div>
 
-                {/*Link to Login */}
-                <p className="text-sm text-center mt-3 text-gray-600">
-                    Already have an account?{''}
-                    <a href="/login" className="text-blue-600 hover:underline">
-                    Login
-                    </a>
-                </p>
-        </form>
-    </div>
+      {/* Password Input */}
+      <div style={{
+        marginBottom: '1.5rem'
+      }}>
+        <label 
+          htmlFor="password" 
+          style={{
+            display: 'block',
+            marginBottom: '0.5rem',
+            fontSize: '0.875rem',
+            color: '#D1D5DB',
+            fontWeight: '500'
+          }}
+        >
+          Password
+        </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+          style={{
+            width: '100%',
+            padding: '0.75rem',
+            backgroundColor: '#374151',
+            color: 'white',
+            border: '1px solid #4B5563',
+            borderRadius: '0.375rem',
+            fontSize: '1rem',
+            outline: 'none'
+          }}
+        />
+      </div>
+
+      {/* Confirm Password Input */}
+      <div style={{
+        marginBottom: '1.5rem'
+      }}>
+        <label 
+          htmlFor="confirmPassword" 
+          style={{
+            display: 'block',
+            marginBottom: '0.5rem',
+            fontSize: '0.875rem',
+            color: '#D1D5DB',
+            fontWeight: '500'
+          }}
+        >
+          Confirm Password
+        </label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          required
+          style={{
+            width: '100%',
+            padding: '0.75rem',
+            backgroundColor: '#374151',
+            color: 'white',
+            border: '1px solid #4B5563',
+            borderRadius: '0.375rem',
+            fontSize: '1rem',
+            outline: 'none'
+          }}
+        />
+      </div>
+
+      {/* Submit Button */}
+      <button 
+        type="submit" 
+        disabled={loading}
+        style={{
+          width: '100%',
+          padding: '0.75rem',
+          backgroundColor: '#3B82F6',
+          color: 'white',
+          border: 'none',
+          borderRadius: '0.375rem',
+          fontSize: '1rem',
+          fontWeight: '500',
+          cursor: loading ? 'not-allowed' : 'pointer',
+          opacity: loading ? 0.7 : 1,
+          transition: 'background-color 0.2s',
+          marginBottom: '1rem'
+        }}
+      >
+        {loading ? 'Registering...' : 'Register'}
+      </button>
+      
+      {/* Link to Login */}
+      <div style={{
+        textAlign: 'center',
+        marginTop: '1rem'
+      }}>
+        <p style={{ 
+          fontSize: '0.875rem',
+          color: '#D1D5DB'
+        }}>
+          Already have an account?{' '}
+          <a 
+            href="/login" 
+            style={{
+              color: '#3B82F6',
+              textDecoration: 'none'
+            }}
+          >
+            Login
+          </a>
+        </p>
+      </div>
+    </form>
 )
 };
 
