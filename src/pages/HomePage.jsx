@@ -14,7 +14,7 @@ const HomePage = () => {
 
         <div className='font-bold lg:text-4xl font-sans'>
           <h1 data-aos="fade-down" data-aos-delay="200" className='lg:text-4xl text-cyan-950 pb-25'>Empowering Communities One data Point at a Time</h1>
-          <p className='text-gray-900' data-aos="fade-down" data-aos-delay="400" >n an era where every number tells a story, our platform empowers governments, NGOs, and local leaders with the insights they need to make a real difference. By capturing individual income records, mapping social backgrounds, and classifying vulnerability levels, we turn raw data into targeted action plans. This holistic view uncovers hidden pockets of need, guides resource allocation, and measures the impact of every program. Together, we build a future where no one is left behind—because when we track the real numbers, we unlock real change.</p>
+          <p className='text-gray-800' data-aos="fade-down" data-aos-delay="400" >in an era where every number tells a story, our platform empowers governments, NGOs, and local leaders with the insights they need to make a real difference. By capturing individual income records, mapping social backgrounds, and classifying vulnerability levels, we turn raw data into targeted action plans. This holistic view uncovers hidden pockets of need, guides resource allocation, and measures the impact of every program. Together, we build a future where no one is left behind—because when we track the real numbers, we unlock real change.</p>
           
         </div>
 

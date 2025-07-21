@@ -1,24 +1,30 @@
-<<<<<<< HEAD
-import { configureStore } from '@reduxjs/toolkit';
-import userListingReducer from './features/users/userListingSlice';
-
-const store = configureStore({
-  reducer: {
-    userListing: userListingReducer,
-  },
-});
-
-export default store;
-=======
 // src/store.js
 import { configureStore } from '@reduxjs/toolkit'
-import authReducer    from './features/auth/authSlice'
-import recordsReducer from './features/records/recordSlice'
+import authReducer        from './features/auth/authSlice'
+import recordsReducer     from './features/records/recordSlice'
+import userListingReducer from './features/users/userListingSlice'
+
+// 1) Grab any existing auth data from localStorage
+const token = localStorage.getItem('token')    // string or null
+const user  = localStorage.getItem('user')
+  ? JSON.parse(localStorage.getItem('user'))
+  : null
+
+// 2) Build a preloadedState for the auth slice
+const preloadedState = {
+  auth: {
+    user: user,
+    token: token,
+    loading: false,
+    error: null,
+  }
+}
 
 export const store = configureStore({
   reducer: {
-    auth:    authReducer,    // for state.auth.loading, error, user
-    records: recordsReducer, // for state.records.records, status, error
+    auth:         authReducer,
+    records:      recordsReducer,
+    userListing:  userListingReducer,
   },
+  preloadedState, 
 })
->>>>>>> 8d41d962b0ad454f8ef351770add259fd2a2f6f2
