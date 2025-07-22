@@ -33,18 +33,20 @@ def delete_user(user_id):
     db.session.commit()
     return jsonify({ "id": user_id }),200
 
-@user_bp.route('/<int:user_id>',methods=['PATCH'])
+@user_bp.route('/<int:user_id>', methods=['PUT,PATCH'])
 @jwt_required()
 def patch_user(user_id):
-    the_current_logged_in_user_patch=get_jwt_identity()
-
-    if user_id != the_current_logged_in_user_patch:
+    current_user_id = get_jwt_identity()
+    if user_id != current_user_id:
         return jsonify({"msg": "Unauthorized"}), 403
-       
-    user_patch = User.query.get_or_404(user_id)
-    db.session.add(user_patch)
+
+    user = User.query.get_or_404(user_id)
+
+    data = request.get_json() or {}
+    for field in ('username', 'email'):
+        if field in data:
+            setattr(user, field, data[field])
+
     db.session.commit()
 
-    return jsonify({"msg": "update is successful"}),200
-
-
+    return user_schema.jsonify(user), 200

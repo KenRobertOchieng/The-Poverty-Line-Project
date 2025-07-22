@@ -3,6 +3,7 @@ from backend.server.models.user import User
 from werkzeug.security import generate_password_hash , check_password_hash
 from flask_jwt_extended import create_access_token
 from backend.server.extensions import db
+from backend.server.schemas.user_schema import UserSchema
 
 login_bp = Blueprint('login', __name__,url_prefix='/login')
 register_bp= Blueprint('register',__name__,url_prefix='/register')
@@ -19,7 +20,7 @@ def register():
     # add and save registeration to session
     db.session.add(registeration_for_user)
     db.session.commit()
-    return jsonify(message="User created"), 201
+    return UserSchema().jsonify(registeration_for_user), 201
 
 @login_bp.route('',methods=['POST'])
 def login():
@@ -27,21 +28,30 @@ def login():
     # we are going to check the password_hash against the password itself
     # creation of access token to identify users
 
-  data=request.get_json()
+    data=request.get_json()
+    data = request.get_json(silent=True) or {}
+    username = data.get('username')
+    password = data.get('password')
 
-  login_of_user=User.query.filter_by(username=data.get('username')).first()
+    # ❌ Missing fields → 400 Bad Request
+    if not username or not password:
+        return jsonify({ "msg": "Username and password are required" }), 400
 
-  if login_of_user and check_password_hash(login_of_user.password,data.get('password')):
+    # ✅ Safe to look up user now
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        return jsonify({ "msg": "Bad credentials" }), 401
+
+    if not check_password_hash(user.password,password):
+      return jsonify({ "msg": "Bad credentials" }), 401
     # and by providing this key login_of_user.id actually means we are returning a key via a person who has logged in
      
-     thee_token=create_access_token(identity=login_of_user.id)
-     return jsonify(
-            message="Login successful",
-            access_token=thee_token
-        ), 200
-
-  else:
-      return jsonify(error="Oops...invalid credentials"), 401
+    thee_token=create_access_token(identity=user.id)
+    return jsonify({
+      "access_token": thee_token,
+      # <-- serialize the full user so your React code can read it
+      "user": UserSchema().dump(user)
+    }), 200
   
 
      

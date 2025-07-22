@@ -18,10 +18,9 @@ def get_all_records():
 @jwt_required()
 def add_record():
     current_record_post=get_jwt_identity()
+    data = request.get_json()
 
     data['user_id']=current_record_post
-
-    data = request.get_json()
     new_record = Record(**data)
     db.session.add(new_record)
     db.session.commit()
@@ -46,18 +45,21 @@ def delete_records(record_id):
    return jsonify({ "id": record_id })
 
 
-@record_bp.route('/<int:record_id>',methods=['PATCH'])
+@record_bp.route('/<int:record_id>',methods=['PUT'])
 @jwt_required()
 def patch_user(record_id):
-    user_patch = Record.query.get_or_404(record_id)
-
     the_current_logged_in_user_patch_record=get_jwt_identity()
+
+    user_patch = Record.query.get_or_404(record_id)
 
     if user_patch.user_id != the_current_logged_in_user_patch_record:
         return jsonify({"msg": "Unauthorized"}), 403
-    db.session.add(user_patch)
+  
+    data = request.get_json() or {}
+    for field in ('income', 'poverty_classification'):
+        if field in data:
+            setattr(user_patch, field, data[field])
+
     db.session.commit()
-
-    return jsonify({"msg": "update is successful"}),200
-
+    return record_schema.jsonify(user_patch), 200
 
