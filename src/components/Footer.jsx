@@ -3,87 +3,30 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
-  
+
   return (
-    <footer style={{
-      backgroundColor: '#1F2937',
-      borderTop: '1px solid #374151',
-      padding: '2rem 0',
-      marginTop: '2rem'
-    }}>
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 2rem',
-      }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '2rem',
-          marginBottom: '2rem'
-        }}>
-          {/* About Section */}
-          <div>
-            <h3 style={{ color: '#fbbf24', fontSize: '1.2rem', marginBottom: '1rem', fontWeight: 'bold' }}>The Poverty Line</h3>
-            <p style={{ color: '#9CA3AF', fontSize: '0.9rem', lineHeight: '1.5', marginBottom: '1rem' }}>
-              Working together to eradicate poverty through data-driven solutions and community engagement.
-            </p>
-            <div style={{ display: 'flex', gap: '1rem' }}>
-              {/* Social Media Icons */}
-              <a href="#" style={{ color: '#9CA3AF', fontSize: '1.2rem' }} aria-label="Facebook">📱</a>
-              <a href="#" style={{ color: '#9CA3AF', fontSize: '1.2rem' }} aria-label="Twitter">📧</a>
-              <a href="#" style={{ color: '#9CA3AF', fontSize: '1.2rem' }} aria-label="Instagram">📊</a>
-            </div>
-          </div>
-          
-          {/* Quick Links */}
-          <div>
-            <h3 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '1rem', fontWeight: 'bold' }}>Quick Links</h3>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <li><Link to="/" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>Home</Link></li>
-              <li><Link to="/dashboard" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>Dashboard</Link></li>
-              <li><Link to="/records" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>Records</Link></li>
-              <li><Link to="/users" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>Users</Link></li>
-            </ul>
-          </div>
-          
-          {/* Resources */}
-          <div>
-            <h3 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '1rem', fontWeight: 'bold' }}>Resources</h3>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <li><a href="#" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>Documentation</a></li>
-              <li><a href="#" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>Reports</a></li>
-              <li><a href="#" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>Research</a></li>
-              <li><a href="#" style={{ color: '#9CA3AF', textDecoration: 'none', fontSize: '0.9rem' }}>Case Studies</a></li>
-            </ul>
-          </div>
-          
-          {/* Contact */}
-          <div>
-            <h3 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '1rem', fontWeight: 'bold' }}>Contact Us</h3>
-            <p style={{ color: '#9CA3AF', fontSize: '0.9rem', marginBottom: '0.5rem' }}>📍 123 Poverty Line Street</p>
-            <p style={{ color: '#9CA3AF', fontSize: '0.9rem', marginBottom: '0.5rem' }}>📞 +254 123 456 789</p>
-            <p style={{ color: '#9CA3AF', fontSize: '0.9rem', marginBottom: '0.5rem' }}>✉️ info@povertyline.org</p>
-          </div>
+    <footer className="w-full bg-blue-950 py-5">
+      <div className="max-w-7xl m-auto grid lg:grid-cols-2 items-center px-4">
+        {/* Left side */}
+        <div className="text-amber-50 text-lg lg:text-2xl">
+          <h1>© {currentYear} Epixolab. All rights reserved.</h1>
         </div>
-        
-        {/* Copyright */}
-        <div style={{
-          borderTop: '1px solid #374151',
-          paddingTop: '1.5rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '1rem'
-        }}>
-          <p style={{ color: '#9CA3AF', fontSize: '0.9rem' }}>
-            © {currentYear} The Poverty Line Project. All rights reserved.
-          </p>
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <a href="#" style={{ color: '#9CA3AF', fontSize: '0.9rem', textDecoration: 'none' }}>Privacy Policy</a>
-            <a href="#" style={{ color: '#9CA3AF', fontSize: '0.9rem', textDecoration: 'none' }}>Terms of Service</a>
-          </div>
+
+        {/* Right side - Navigation Links */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4 lg:mt-0 text-white text-sm sm:text-base">
+          <Link to="/portfolio" className="hover:underline">Portfolio</Link>
+          <Link to="/pricing" className="hover:underline">Pricing</Link>
+          <Link to="/how-it-works" className="hover:underline">How it Works</Link>
+          <Link to="/networking" className="hover:underline">Networking</Link>
+        </div>
+      </div>
+
+      {/* Bottom line */}
+      <div className="border-t border-gray-700 mt-6 pt-4 px-4 flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm gap-2">
+        <p>© {currentYear} The Poverty Line Project. All rights reserved.</p>
+        <div className="flex gap-4">
+          <Link to="/privacy" className="hover:underline">Privacy Policy</Link>
+          <Link to="/terms" className="hover:underline">Terms of Service</Link>
         </div>
       </div>
     </footer>

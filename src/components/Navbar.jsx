@@ -9,8 +9,8 @@ const Navbar = () => {
     { to: '/login', label: 'Login' },
     { to: '/register', label: 'Register' },
     { to: '/records', label: 'Records' },
-    { to: '/user', label: 'User' },
-    // NotFound page removed from navbar but still accessible via routes
+    { to: '/users', label: 'Users' },
+    { to: '/notfound', label: 'NotFound' },
   ];
 
   return (
