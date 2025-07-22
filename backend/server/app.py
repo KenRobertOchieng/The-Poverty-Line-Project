@@ -12,7 +12,6 @@ db.init_app(app)
 jwt = JWTManager(app)
 migrate = Migrate(app, db)
 
-# Register blueprints
 from controllers.auth_controller import auth_bp
 from controllers.user_controller import record_bp  
 
