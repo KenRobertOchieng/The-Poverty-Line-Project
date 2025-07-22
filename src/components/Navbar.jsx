@@ -10,7 +10,7 @@ const Navbar = () => {
     { to: '/login', label: 'Login' },
     { to: '/register', label: 'Register' },
     { to: '/records', label: 'Records' },
-    { to: '/user', label: 'User' },
+    { to: '/users', label: 'Users' },
     { to: '/notfound', label: 'NotFound' },
   ];
 

@@ -1,42 +1,29 @@
 // src/store.js
 import { configureStore } from '@reduxjs/toolkit'
-<<<<<<< HEAD
-import authReducer from './features/auth/authSlice'
-import recordsReducer from './features/records/recordSlice'
-import userListingReducer from './features/users/userListingSlice'
-
-export const store = configureStore({
-  reducer: {
-    auth: authReducer,          // for state.auth.loading, error, user
-    records: recordsReducer,    // for state.records.records, status, error
-    userListing: userListingReducer  // for state.userListing.users, loading, error
-=======
 import authReducer        from './features/auth/authSlice'
 import recordsReducer     from './features/records/recordSlice'
 import userListingReducer from './features/users/userListingSlice'
 
-// 1) Grab any existing auth data from localStorage
-const token = localStorage.getItem('token')    // string or null
-const user  = localStorage.getItem('user')
-  ? JSON.parse(localStorage.getItem('user'))
-  : null
+// Safely read token
+const token = localStorage.getItem('token') || null
 
-// 2) Build a preloadedState for the auth slice
-const preloadedState = {
-  auth: {
-    user: user,
-    token: token,
-    loading: false,
-    error: null,
+// Safely read & parse user
+let user = null
+const storedUser = localStorage.getItem('user')
+if (storedUser && storedUser !== 'undefined') {
+  try {
+    user = JSON.parse(storedUser)
+  } catch {
+    user = null
   }
 }
 
+const preloadedState = {
+  auth: { user, token, loading: false, error: null }
+}
+
 export const store = configureStore({
-  reducer: {
-    auth:         authReducer,
-    records:      recordsReducer,
-    userListing:  userListingReducer,
->>>>>>> 4f5d20278e02a6ed501a846d3709dc24a3dce8ef
-  },
-  preloadedState, 
+  reducer: { auth: authReducer, records: recordsReducer, userListing: userListingReducer },
+  preloadedState,
 })
+

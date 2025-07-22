@@ -15,7 +15,6 @@ export const registerUser = createAsyncThunk(
       if (!res.ok) {
         return rejectWithValue(data.message || 'Registration failed')
       }
-      // assume data === { id, username, email, timestamp }
       return data
     } catch (err) {
       return rejectWithValue(err.message)
@@ -26,18 +25,17 @@ export const registerUser = createAsyncThunk(
 // Thunk for logging in an existing user
 export const loginUser = createAsyncThunk(
   'auth/login',
-  async ({ email, password }, { rejectWithValue }) => {
+  async ({ username, password }, { rejectWithValue }) => {
     try {
       const res = await fetch('http://localhost:5000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, password }), 
       })
       const data = await res.json()
       if (!res.ok) {
         return rejectWithValue(data.message || 'Login failed')
       }
-      // assume data === { access_token, user: { id, username, email, ... } }
       return data
     } catch (err) {
       return rejectWithValue(err.message)
@@ -78,7 +76,7 @@ const authSlice = createSlice({
         state.error = action.payload || action.error.message
       })
 
-      // Login flow
+    // Login flow
       .addCase(loginUser.pending, (state) => {
         state.loading = true
         state.error = null

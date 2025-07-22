@@ -2,11 +2,9 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteRecord } from '../features/records/recordSlice'
 
-const RecordList = ({
-  records = [],   // ← default to an empty array
-  onEdit
-}) => {
-    
+export default function RecordList({ records = [], onEdit }) {
+  const dispatch = useDispatch()
+
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this record?')) {
       dispatch(deleteRecord(id))
@@ -16,7 +14,6 @@ const RecordList = ({
   return (
     <div className="p-4 bg-white shadow rounded-xl">
       <h2 className="text-xl font-bold mb-4">Poverty Records</h2>
-
       {records.length === 0 ? (
         <p className="text-gray-600">No records found.</p>
       ) : (
@@ -27,7 +24,6 @@ const RecordList = ({
               className="border p-4 rounded-xl bg-gray-50 flex justify-between items-center"
             >
               <div>
-                {/* Show the fields from your Record model */}
                 <p className="font-semibold">
                   Income: <span className="text-blue-600">{record.income}</span>
                 </p>
@@ -38,11 +34,9 @@ const RecordList = ({
                   </span>
                 </p>
                 <p className="text-sm text-gray-500">
-                  Recorded on:{' '}
-                  {new Date(record.timestamp).toLocaleDateString()}
+                  Recorded on: {new Date(record.timestamp).toLocaleDateString()}
                 </p>
               </div>
-
               <div className="flex space-x-2">
                 <button
                   onClick={() => onEdit(record)}
@@ -64,5 +58,3 @@ const RecordList = ({
     </div>
   )
 }
-
-export default RecordList

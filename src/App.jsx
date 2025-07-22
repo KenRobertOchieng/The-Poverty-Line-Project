@@ -21,7 +21,7 @@ import './index.css'
 function App() {
   return (
     <Router>
-      <div className="bg-gray-700 min-h-screen flex flex-col">
+      <div className="bg-blue-950 min-h-screen flex flex-col">
         <Navbar />
 
         <main className="flex-grow">
