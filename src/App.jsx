@@ -22,6 +22,31 @@ function App() {
   return (
     <Router>
       <div className="bg-gray-700 min-h-screen flex flex-col">
+        <div style={{
+          backgroundColor: '#1F2937',
+          padding: '1rem 0',
+          textAlign: 'center',
+          borderBottom: '1px solid #374151'
+        }}>
+          <h1 style={{
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            color: '#fbbf24',
+            margin: 0,
+            letterSpacing: '3px',
+            textTransform: 'uppercase'
+          }}>
+            The Poverty Line
+          </h1>
+          <p style={{
+            fontSize: '0.9rem',
+            color: '#9CA3AF',
+            letterSpacing: '2px',
+            marginTop: '0.25rem'
+          }}>
+            A STEP TOWARDS ERADICATING POVERTY
+          </p>
+        </div>
         <Navbar />
 
         <main className="flex-grow">

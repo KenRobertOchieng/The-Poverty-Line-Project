@@ -6,12 +6,11 @@ const Navbar = () => {
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/dashboard', label: 'Dashboard' },
-    { to: '/profile', label: 'Profile' },
     { to: '/login', label: 'Login' },
     { to: '/register', label: 'Register' },
     { to: '/records', label: 'Records' },
     { to: '/user', label: 'User' },
-    { to: '/notfound', label: 'NotFound' },
+    // NotFound page removed from navbar but still accessible via routes
   ];
 
   return (
@@ -19,23 +18,19 @@ const Navbar = () => {
       width: '100%',
       background: 'linear-gradient(90deg, #0f2027 0%, #2c5364 100%)',
       boxShadow: '0 2px 8px rgba(44,83,100,0.15)',
-      padding: '1rem 0',
+      padding: '0.75rem 0',
       marginBottom: '2rem',
-      position: 'sticky',
-      top: 0,
       zIndex: 1000,
     }}>
       <div style={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '0 2rem',
       }}>
-        <div style={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#fbbf24', letterSpacing: '2px' }}>
-          PovertyLine
-        </div>
+        {/* Removed the PovertyLine text since it's now in the title above */}
         <div style={{ display: 'flex', gap: '2rem' }}>
           {navLinks.map(link => (
             <Link
