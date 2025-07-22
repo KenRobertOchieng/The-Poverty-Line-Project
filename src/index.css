@@ -1,1 +1,174 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #1a1a1a;
+  background-image: url('https://i.pinimg.com/1200x/61/3c/cb/613ccb12adeeb72938a0a344066b1e15.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  width: 850px;
+  min-height: 750px;
+  background-color: rgba(45, 35, 26, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.login-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #e5d5b8;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.welcoming-text {
+  color: #c4b79a;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: 'Crimson Text', serif;
+  letter-spacing: 0.3px;
+}
+
+.divider-container {
+  margin: 1.8rem auto;
+  width: 80%;
+}
+
+.divider-line {
+  height: 1px;
+  background: linear-gradient(to right, 
+    transparent, 
+    rgba(188, 174, 145, 0.6), 
+    transparent);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  margin-bottom: 0.6rem;
+  font-family: 'Crimson Text', serif;
+}
+
+.form-input {
+  width: 75%;
+  padding: 0.8rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #f5f5f5;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #d4b98a;
+  box-shadow: 0 0 0 2px rgba(212, 185, 138, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.submit-button {
+  width: 75%;
+  background-color: rgba(212, 185, 138, 0.1);
+  color: #d4b98a;
+  padding: 0.9rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(212, 185, 138, 0.3);
+  margin-top: 3.5rem;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-left: 7%
+}
+
+.submit-button:hover {
+  background-color: rgba(212, 185, 138, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-footer {
+  font-size: 0.85rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 2.5rem;
+  font-style: italic;
+  font-family: 'Crimson Text', serif;
+}
+
+.password-group {
+  position: relative;
+}
+
+.forgot-password {
+  text-align: right;
+}
+
+.forgot-password-link {
+  font-size: 0.85rem;
+  color: #c4b79a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-password-link:hover {
+  color: #d4b98a;
+  text-decoration: underline;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.checkbox-input {
+  width: 16px;
+  height: 16px;
+  accent-color: #d4b98a;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  font-family: 'Crimson Text', serif;
+  cursor: pointer;
+}
+
 @import "tailwindcss";
