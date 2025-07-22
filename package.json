@@ -15,12 +15,7 @@
     "aos": "^2.3.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-<<<<<<< HEAD
     "react-router-dom": "^6.30.1",
-=======
-    "react-redux": "^9.2.0",
-    "react-router-dom": "^7.7.0",
->>>>>>> abcadbd1d6a0b7dbb446cccabe425290ccd65f6f
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
