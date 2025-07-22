@@ -1,4 +1,4 @@
-from server.extensions import db
+from backend.server.extensions import db
 
 
 class Profile(db.Model):
@@ -9,9 +9,9 @@ class Profile(db.Model):
     gender=db.Column(db.String)
     social_category=db.Column(db.String)
 
-    user_id=db.COlumn(db.Integer,db.ForeignKey('user.id'))
-    user=db.relationship('User',back_populates='user')
+    user_id=db.Column(db.Integer,db.ForeignKey('user.id'))
+    user=db.relationship('User',back_populates='profile')
 
 
     def __repr__(self):
-        return f'<Profile {self.id},{self.age},{self.social_category}'
+        return f'<Profile {self.id},{self.age},{self.social_category}>'
