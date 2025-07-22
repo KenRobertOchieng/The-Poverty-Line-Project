@@ -8,6 +8,7 @@ function LoginForm() {
     password: '',
     rememberMe: false
   });
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -17,10 +18,37 @@ function LoginForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Login attempted with:', formData);
-    navigate('/home');
+    setError('');
+    
+    try {
+      const response = await fetch('http://localhost:5000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Login failed');
+      }
+
+      // Store token based on rememberMe choice
+      const storage = formData.rememberMe ? localStorage : sessionStorage;
+      storage.setItem('token', data.access_token);
+      storage.setItem('user_id', data.user_id);
+
+      navigate('/home');
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -32,6 +60,8 @@ function LoginForm() {
           <div className='divider-line'></div>
         </div>
       </div>
+
+      {error && <div className='error-message' style={{ color: 'red', textAlign: 'center', margin: '10px 0' }}>{error}</div>}
 
       <form className='login-form' onSubmit={handleSubmit}>
         <div className='form-group'>

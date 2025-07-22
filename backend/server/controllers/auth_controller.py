@@ -1,29 +1,24 @@
 from flask import Blueprint, request, jsonify
-from marshmallow import ValidationError
-from schemas.user_schema import UserSchema
+from werkzeug.security import check_password_hash
 from models.user import User
-from models import db
+from flask_jwt_extended import create_access_token
 
 auth_bp = Blueprint('auth', __name__)
-user_schema = UserSchema()
 
-@auth_bp.route('/register', methods=['POST'])
-def register():
+@auth_bp.route('/login', methods=['POST'])
+def login():
     data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
 
-    # Deserialize and validate input
-    try:
-        user_data = user_schema.load(data)
-    except ValidationError as err:
-        return jsonify(err.messages), 400
+    user = User.query.filter_by(username=username).first()
 
-    new_user = User(
-        username=user_data['username'],
-        email=user_data['email'],
-        password=user_data['password']
-    )
+    if not user or not user.check_password(password):
+        return jsonify({"error": "Invalid username or password"}), 401
 
-    db.session.add(new_user)
-    db.session.commit()
-
-    return user_schema.dump(new_user), 201
+    access_token = create_access_token(identity=user.id)
+    return jsonify({
+        "message": "Login successful",
+        "access_token": access_token,
+        "user_id": user.id
+    }), 200

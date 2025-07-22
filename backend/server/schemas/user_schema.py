@@ -11,7 +11,7 @@ class UserSchema(SQLAlchemyAutoSchema):
         model = User
         include_fk = True
         load_instance = True
-        exclude = ("profile", "records")  # Prevents recursive serialization
+        exclude = ("profile", "records") 
 
     @validates_schema
     def validate_unique_fields(self, data, **kwargs):
