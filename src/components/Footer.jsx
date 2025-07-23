@@ -6,10 +6,11 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-blue-950 py-5">
+      
       <div className="max-w-7xl m-auto grid lg:grid-cols-2 items-center px-4">
         {/* Left side */}
         <div className="text-amber-50 text-lg lg:text-2xl">
-          <h1>© {currentYear} Epixolab. All rights reserved.</h1>
+          <h2>© {currentYear} Epixolab. All rights reserved.</h2>
         </div>
 
         {/* Right side - Navigation Links */}
