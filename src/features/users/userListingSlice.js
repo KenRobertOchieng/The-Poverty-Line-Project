@@ -1,4 +1,3 @@
-// src/features/users/userListingSlice.js
 import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit'
 
 const API_URL = 'http://localhost:5000'
@@ -8,31 +7,36 @@ const getMockUsers = () => [
   { id: 3, username: 'JohnSmith',   email: 'john@example.com',  timestamp: null },
 ]
 
-// Fetch all users
 export const fetchUsers = createAsyncThunk(
   'userListing/fetchUsers',
-  async (_, { rejectWithValue }) => {
+  async (_, { getState, rejectWithValue }) => {
+    const token = getState().auth.token
     try {
-      const res  = await fetch(`${API_URL}/users`)
+      const res  = await fetch(`${API_URL}/users`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
       const data = await res.json()
       if (!res.ok) throw new Error(data.message || 'Failed to fetch users')
-      return data.message  // your backend returns { message: [ ... ] }
+      return data.message  // backend returns { message: [ ... ] }
     } catch (err) {
       return rejectWithValue(err.message)
     }
   }
 )
 
-// Fetch one user by ID
 export const fetchUserById = createAsyncThunk(
   'userListing/fetchUserById',
-  async (userId, { rejectWithValue }) => {
+  async (userId, { getState, rejectWithValue }) => {
+    const token = getState().auth.token
     try {
-      const res  = await fetch(`${API_URL}/users/${userId}`)
+      const res  = await fetch(`${API_URL}/users/${userId}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
       const data = await res.json()
       if (!res.ok) throw new Error(data.message || `User ${userId} not found`)
       // sometimes backend wraps single in array
-      return Array.isArray(data.message) ? data.message[0] : data.message
+      const user = Array.isArray(data.message) ? data.message[0] : data.message
+      return user
     } catch (err) {
       return rejectWithValue(err.message)
     }
@@ -53,28 +57,28 @@ const userListingSlice = createSlice({
   name: 'userListing',
   initialState,
   reducers: {
-    setSearchTerm:    (s, a) => { s.searchTerm = a.payload },
-    setSortCriteria: (s, a) => {
-      s.sortBy        = a.payload.sortBy
-      s.sortDirection = a.payload.sortDirection
+    setSearchTerm:    (state, action) => { state.searchTerm = action.payload },
+    setSortCriteria:  (state, action) => {
+      state.sortBy        = action.payload.sortBy
+      state.sortDirection = action.payload.sortDirection
     },
-    setMockUsers:     (s) => {
-      s.users    = getMockUsers()
-      s.loading  = false
-      s.error    = null
+    setMockUsers:     (state) => {
+      state.users    = getMockUsers()
+      state.loading  = false
+      state.error    = null
     },
   },
   extraReducers: (builder) => {
     builder
       // ---- fetchUsers
-      .addCase(fetchUsers.pending,   (s) =>   { s.loading = true;  s.error = null })
-      .addCase(fetchUsers.fulfilled, (s, a) => { s.loading = false; s.users = a.payload })
-      .addCase(fetchUsers.rejected,  (s, a) => { s.loading = false; s.error = a.payload; s.users = getMockUsers() })
+      .addCase(fetchUsers.pending,   (state) =>   { state.loading = true;  state.error = null })
+      .addCase(fetchUsers.fulfilled, (state, action) => { state.loading = false; state.users = action.payload })
+      .addCase(fetchUsers.rejected,  (state, action) => { state.loading = false; state.error = action.payload; state.users = getMockUsers() })
 
       // ---- fetchUserById
-      .addCase(fetchUserById.pending,   (s) =>   { s.loading = true;  s.error = null; s.selectedUser = null })
-      .addCase(fetchUserById.fulfilled, (s, a) => { s.loading = false; s.selectedUser = a.payload })
-      .addCase(fetchUserById.rejected,  (s, a) => { s.loading = false; s.error = a.payload })
+      .addCase(fetchUserById.pending,   (state) =>   { state.loading = true;  state.error = null; state.selectedUser = null })
+      .addCase(fetchUserById.fulfilled, (state, action) => { state.loading = false; state.selectedUser = action.payload })
+      .addCase(fetchUserById.rejected,  (state, action) => { state.loading = false; state.error = action.payload })
   }
 })
 
