@@ -1,21 +1,19 @@
 // src/store.js
 import { configureStore } from '@reduxjs/toolkit'
-import authReducer        from './features/auth/authSlice'
-import recordsReducer     from './features/records/recordSlice'
+import authReducer from './features/auth/authSlice'
+import recordsReducer from './features/records/recordSlice'
 import userListingReducer from './features/users/userListingSlice'
 
-// Safely read token
-const token = localStorage.getItem('token') || null
-
-// Safely read & parse user
-let user = null
-const storedUser = localStorage.getItem('user')
-if (storedUser && storedUser !== 'undefined') {
-  try {
-    user = JSON.parse(storedUser)
-  } catch {
-    user = null
-  }
+// Grab any existing auth data from localStorage with error handling
+let token, user;
+try {
+  token = localStorage.getItem('token');    // string or null
+  const userStr = localStorage.getItem('user');
+  user = userStr && userStr !== 'undefined' ? JSON.parse(userStr) : null;
+} catch (error) {
+  console.error('Error accessing localStorage:', error);
+  token = null;
+  user = null;
 }
 
 const preloadedState = {
@@ -23,7 +21,10 @@ const preloadedState = {
 }
 
 export const store = configureStore({
-  reducer: { auth: authReducer, records: recordsReducer, userListing: userListingReducer },
-  preloadedState,
+  reducer: {
+    auth: authReducer,
+    records: recordsReducer,
+    userListing: userListingReducer,
+  },
+  preloadedState
 })
-
