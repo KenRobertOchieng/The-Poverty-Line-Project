@@ -22,6 +22,11 @@ function App() {
   return (
     <Router>
       <div className="bg-blue-950 min-h-screen flex flex-col">
+        {/* Title Section */}
+        <div className="bg-blue-950 border-b border-blue-900 py-4 text-center">
+          <h1 className="text-4xl font-extrabold text-amber-400 tracking-wider uppercase">The Poverty Line</h1>
+          <p className="text-green-500 text-sm mt-1 font-medium">A STEP TOWARDS ERADICATING POVERTY</p>
+        </div>
         <Navbar />
 
         <main className="flex-grow">
