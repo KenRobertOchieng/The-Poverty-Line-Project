@@ -1,17 +1,27 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const location = useLocation();
-  const navLinks = [
+  const { user, token } = useSelector(state => state.auth);
+  const isAuthenticated = !!(user && token);
+
+  // Define links for authenticated and unauthenticated users
+  const publicLinks = [
     { to: '/', label: 'Home' },
-    { to: '/dashboard', label: 'Dashboard' },
     { to: '/login', label: 'Login' },
     { to: '/register', label: 'Register' },
+  ];
+
+  const authenticatedLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/dashboard', label: 'Dashboard' },
     { to: '/records', label: 'Records' },
     { to: '/users', label: 'Users' },
-    // NotFound page removed from navbar but still accessible via catch-all route
   ];
+
+  const navLinks = isAuthenticated ? authenticatedLinks : publicLinks;
 
   return (
     <nav style={{
