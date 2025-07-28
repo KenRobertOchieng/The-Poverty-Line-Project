@@ -10,6 +10,7 @@ const Navbar = () => {
     { to: '/register', label: 'Register' },
     { to: '/records', label: 'Records' },
     { to: '/users', label: 'Users' },
+    {label:'Logout'}
     // NotFound page removed from navbar but still accessible via catch-all route
   ];
 
