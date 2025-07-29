@@ -1,0 +1,55 @@
+{
+  "hash": "cdd9e850",
+  "configHash": "156c132e",
+  "lockfileHash": "e3b0c442",
+  "browserHash": "91746e06",
+  "optimized": {
+    "@reduxjs/toolkit": {
+      "src": "../../client/node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs",
+      "file": "@reduxjs_toolkit.js",
+      "fileHash": "10bca704",
+      "needsInterop": false
+    },
+    "aos": {
+      "src": "../../client/node_modules/aos/dist/aos.js",
+      "file": "aos.js",
+      "fileHash": "83f6fccf",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../client/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "cbbbcf5a",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../client/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "2b1e2de9",
+      "needsInterop": true
+    },
+    "react-redux": {
+      "src": "../../client/node_modules/react-redux/dist/react-redux.mjs",
+      "file": "react-redux.js",
+      "fileHash": "936379a6",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../client/node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "4e0a066b",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-JG2KGYKZ": {
+      "file": "chunk-JG2KGYKZ.js"
+    },
+    "chunk-NH24N4FA": {
+      "file": "chunk-NH24N4FA.js"
+    },
+    "chunk-5WRI5ZAA": {
+      "file": "chunk-5WRI5ZAA.js"
+    }
+  }
+}
