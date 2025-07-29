@@ -15,7 +15,7 @@ const Navbar = () => {
   ];
 
   const authenticatedLinks = [
-    { to: '/', label: 'Home' },
+    { to: '/', label: 'Hom' },
     { to: '/dashboard', label: 'Dashboard' },
     { to: '/records', label: 'Records' },
     { to: '/users', label: 'Users' },
