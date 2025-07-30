@@ -1,11 +1,11 @@
 from flask import Flask
 from flask_migrate import Migrate
 from flask_cors import CORS
-from backend.server.extensions import db
-from backend.server.controllers.auth_controller import login_bp ,register_bp
-from backend.server.controllers.user_controller import user_bp
-from backend.server.controllers.record_controller import record_bp
-from backend.server.controllers.profile_controller import profile_bp
+from server.extensions import db
+from server.controllers.auth_controller import login_bp ,register_bp
+from server.controllers.user_controller import user_bp
+from server.controllers.record_controller import record_bp
+from server.controllers.profile_controller import profile_bp
 
 from backend.server.extensions import JWTManager
 

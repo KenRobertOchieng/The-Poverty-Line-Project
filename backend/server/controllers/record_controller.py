@@ -1,7 +1,7 @@
 from flask import Blueprint, request , jsonify
-from backend.server.models.record import Record
-from backend.server.schemas.record_schema import RecordSchema
-from backend.server.extensions import db
+from server.models.record import Record
+from server.schemas.record_schema import RecordSchema
+from server.extensions import db
 from flask_jwt_extended import jwt_required ,get_jwt_identity
 
 record_bp = Blueprint('record',__name__, url_prefix='/records')

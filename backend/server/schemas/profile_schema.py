@@ -1,5 +1,5 @@
-from backend.server.models.profile import Profile
-from backend.server.extensions import ma
+from server.models.profile import Profile
+from server.extensions import ma
 from marshmallow import fields, validate, ValidationError, validates_schema
 
 class ProfileSchema(ma.SQLAlchemyAutoSchema):

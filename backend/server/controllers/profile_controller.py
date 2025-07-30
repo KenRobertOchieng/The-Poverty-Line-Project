@@ -1,7 +1,7 @@
 from flask import Blueprint, request , jsonify
-from backend.server.models.profile import Profile
-from backend.server.schemas.profile_schema import ProfileSchema
-from backend.server.extensions import db
+from server.models.profile import Profile
+from server.schemas.profile_schema import ProfileSchema
+from server.extensions import db
 from flask_jwt_extended import jwt_required ,get_jwt_identity
 
 profile_bp = Blueprint('profile',__name__, url_prefix='/profile')

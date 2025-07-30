@@ -1,9 +1,9 @@
 from flask import Blueprint, request, jsonify
-from backend.server.models.user import User
+from server.models.user import User
 from werkzeug.security import generate_password_hash , check_password_hash
 from flask_jwt_extended import create_access_token
-from backend.server.extensions import db
-from backend.server.schemas.user_schema import UserSchema
+from server.extensions import db
+from server.schemas.user_schema import UserSchema
 
 login_bp = Blueprint('login', __name__,url_prefix='/login')
 register_bp= Blueprint('register',__name__,url_prefix='/register')

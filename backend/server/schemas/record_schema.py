@@ -1,5 +1,5 @@
-from backend.server.extensions import ma
-from backend.server.models.record import Record
+from server.extensions import ma
+from server.models.record import Record
 from marshmallow import fields, validate, ValidationError, validates_schema
 
 class RecordSchema(ma.SQLAlchemyAutoSchema):

@@ -1,4 +1,4 @@
-from backend.server.extensions import db
+from server.extensions import db
 
 
 class Profile(db.Model):
