@@ -8,19 +8,33 @@ from server.schemas.user_schema import UserSchema
 login_bp = Blueprint('login', __name__,url_prefix='/login')
 register_bp= Blueprint('register',__name__,url_prefix='/register')
 
-@register_bp.route('', methods=['POST'])
+@register_bp.route('/register', methods=['POST'])
 def register():
-    # get the json for registering a user
-    # user password hashing for safety of password
+    try:
+        data = request.get_json()
 
-    data=request.get_json()
+        # Validation
+        if not data.get('username') or not data.get('email') or not data.get('password'):
+            return jsonify({'msg': 'Missing fields'}), 400
 
-    registeration_for_user=User(username=data.get('username'),email=data.get('email'), password=generate_password_hash(data.get('password')))
+        # Check for duplicates
+        if User.query.filter_by(email=data['email']).first():
+            return jsonify({'msg': 'Email already exists'}), 409
 
-    # add and save registeration to session
-    db.session.add(registeration_for_user)
-    db.session.commit()
-    return UserSchema().jsonify(registeration_for_user), 201
+        # Create user
+        new_user = User(
+            username=data['username'],
+            email=data['email'],
+            password=generate_password_hash(data['password'])
+        )
+        db.session.add(new_user)
+        db.session.commit()
+
+        return UserSchema().jsonify(new_user), 201
+
+    except Exception as e:
+        print(f"❌ Registration error: {e}")
+        return jsonify({'msg': 'Internal server error', 'error': str(e)}), 500
 
 @login_bp.route('',methods=['POST'])
 def login():

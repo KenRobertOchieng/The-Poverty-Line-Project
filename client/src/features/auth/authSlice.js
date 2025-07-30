@@ -6,7 +6,7 @@ export const registerUser = createAsyncThunk(
   'auth/register',
   async ({ username, email, password }, { rejectWithValue }) => {
     try {
-      const res = await fetch('http://localhost:5000/register', {
+      const res = await fetch('https://the-poverty-line-project-10.onrender.com/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, email, password }),
@@ -27,7 +27,7 @@ export const loginUser = createAsyncThunk(
   'auth/login',
   async ({ username, password }, { rejectWithValue }) => {
     try {
-      const res = await fetch('http://localhost:5000/login', {
+      const res = await fetch('https://the-poverty-line-project-10.onrender.com/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }), 
