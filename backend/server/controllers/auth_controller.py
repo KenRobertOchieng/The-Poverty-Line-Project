@@ -8,7 +8,7 @@ from server.schemas.user_schema import UserSchema
 login_bp = Blueprint('login', __name__,url_prefix='/login')
 register_bp= Blueprint('register',__name__,url_prefix='/register')
 
-@register_bp.route('/register', methods=['POST'])
+@register_bp.route('', methods=['POST'])
 def register():
     try:
         data = request.get_json()
