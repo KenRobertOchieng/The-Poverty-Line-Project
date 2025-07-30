@@ -28,7 +28,6 @@ migrate=Migrate(app,db)
 def initialize_database():
   seed_data()
 
-
 app.register_blueprint(register_bp)
 app.register_blueprint(login_bp)
 app.register_blueprint(user_bp)
