@@ -24,9 +24,10 @@ jwt = JWTManager(app)
 db.init_app(app)
 migrate=Migrate(app,db)
 
-@app.before_first_request
+@app.before_serving
 def initialize_database():
-  seed_data()
+    seed_data()
+
 
 app.register_blueprint(register_bp)
 app.register_blueprint(login_bp)
