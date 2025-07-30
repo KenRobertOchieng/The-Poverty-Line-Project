@@ -1,8 +1,8 @@
 from server.models.profile import Profile
-from server.extensions import ma
+from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from marshmallow import fields, validate, ValidationError, validates_schema
 
-class ProfileSchema(ma.SQLAlchemyAutoSchema):
+class ProfileSchema(SQLAlchemyAutoSchema):
     age = fields.Integer(required=True, validate=validate.Range(min=0, max=120))
     gender = fields.String(
         required=True,

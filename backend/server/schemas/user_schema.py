@@ -1,8 +1,8 @@
-from server.extensions import ma
+from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from server.models.user import User
 from marshmallow import fields, validate, validates_schema, ValidationError
 
-class UserSchema(ma.SQLAlchemyAutoSchema):
+class UserSchema(SQLAlchemyAutoSchema):
     username = fields.String(required=True, validate=validate.Length(min=3, max=80))
     email = fields.Email(required=True)
     password = fields.String(required=True, validate=validate.Length(min=6), load_only=True)

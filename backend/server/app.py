@@ -7,7 +7,7 @@ from server.controllers.user_controller import user_bp
 from server.controllers.record_controller import record_bp
 from server.controllers.profile_controller import profile_bp
 
-from backend.server.extensions import JWTManager
+from server.extensions import JWTManager
 
 app=Flask(__name__)
 

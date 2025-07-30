@@ -1,8 +1,8 @@
-from server.extensions import ma
+from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from server.models.record import Record
 from marshmallow import fields, validate, ValidationError, validates_schema
 
-class RecordSchema(ma.SQLAlchemyAutoSchema):
+class RecordSchema(SQLAlchemyAutoSchema):
     income = fields.Float(
         required=True,
         validate=validate.Range(min=0)

@@ -3,7 +3,7 @@ from server.models.user import User
 from server.schemas.user_schema import UserSchema
 from flask_jwt_extended import jwt_required ,get_jwt_identity
 
-from backend.server.extensions import db
+from server.extensions import db
 
 user_bp = Blueprint('user',__name__,url_prefix='/users')
 users_schema = UserSchema(many=True)
