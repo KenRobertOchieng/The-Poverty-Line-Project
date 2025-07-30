@@ -30,7 +30,7 @@ def register():
         db.session.add(new_user)
         db.session.commit()
 
-        return UserSchema().jsonify(new_user), 201
+        return UserSchema().dump(new_user), 201
 
     except Exception as e:
         print(f"❌ Registration error: {e}")

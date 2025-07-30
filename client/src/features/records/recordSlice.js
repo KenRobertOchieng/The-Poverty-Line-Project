@@ -6,7 +6,7 @@ export const fetchRecords = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     const token = getState().auth.token
     try {
-      const res = await fetch('https://the-poverty-line-project-10.onrender.com/records', {
+      const res = await fetch('https://the-poverty-line-project-14.onrender.com/records', {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (!res.ok) {
@@ -27,7 +27,7 @@ export const createRecord = createAsyncThunk(
   async (recordData, { getState, rejectWithValue }) => {
     const token = getState().auth.token
     try {
-      const res = await fetch('https://the-poverty-line-project-10.onrender.com/records', {
+      const res = await fetch('https://the-poverty-line-project-14.onrender.com/records', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export const updateRecord = createAsyncThunk(
   async ({ id, ...changes }, { getState, rejectWithValue }) => {
     const token = getState().auth.token
     try {
-      const res = await fetch(`https://the-poverty-line-project-10.onrender.com/records/${id}`, {
+      const res = await fetch(`https://the-poverty-line-project-14.onrender.com/records/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ export const deleteRecord = createAsyncThunk(
   async (id, { getState, rejectWithValue }) => {
     const token = getState().auth.token
     try {
-      const res = await fetch(`https://the-poverty-line-project-10.onrender.com/records/${id}`, {
+      const res = await fetch(`https://the-poverty-line-project-14.onrender.com/records/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       })
