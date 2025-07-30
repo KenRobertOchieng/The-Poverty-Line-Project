@@ -53,7 +53,7 @@ class ErrorBoundary extends React.Component {
       );
     }
 
-    return this.props.children;
+return this.props.children;
   }
 }
 
@@ -74,4 +74,4 @@ try {
   }
 } catch (error) {
   console.error('Error rendering React application:', error);
-}
+  }

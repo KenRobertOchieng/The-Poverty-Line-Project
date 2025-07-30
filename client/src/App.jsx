@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -29,63 +28,63 @@ function App() {
         </div>
         <Navbar />
 
-        <main className="flex-grow">
-          <Routes>
-            {/* public */}
-            <Route path="/"         element={<HomePage />} />
-            <Route path="/login"    element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
+    <main className="flex-grow">
+      <Routes>
+        {/* public */}
+        <Route path="/"         element={<HomePage />} />
+        <Route path="/login"    element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
-            {/* protected */}
-            <Route
-              path="/dashboard"
-              element={
-                <PrivateRoute>
-                  <Dashboard />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <PrivateRoute>
-                  <Profile />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/records"
-              element={
-                <PrivateRoute>
-                  <RecordsPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/user/:userId"
-              element={
-                <PrivateRoute>
-                  <UserPage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/users"
-              element={
-                <PrivateRoute>
-                  <UsersPage />
-                </PrivateRoute>
-              }
-            />
+        {/* protected */}
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/records"
+          element={
+            <PrivateRoute>
+              <RecordsPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/user/:userId"
+          element={
+            <PrivateRoute>
+              <UserPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/users"
+          element={
+            <PrivateRoute>
+              <UsersPage />
+            </PrivateRoute>
+          }
+        />
 
-            {/* catch‑all */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+        {/* catch‑all */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </main>
 
-        <Footer />
-      </div>
-    </Router>
+    <Footer />
+  </div>
+</Router>
   )
 }
 
