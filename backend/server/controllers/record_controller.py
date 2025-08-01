@@ -23,7 +23,7 @@ def add_record():
     rec = Record(**data)
     db.session.add(rec)
     db.session.commit()
-    # ← dump → jsonify, don't call schema.jsonify()
+    
     return jsonify(record_schema.dump(rec)), 201
 
 @record_bp.route('/<int:record_id>', methods=['GET'])

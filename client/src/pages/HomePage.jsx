@@ -20,7 +20,7 @@ const HomePage = () => {
 
         {/* grid section col 2 */}
 
-        <div className='items-center m-auto'><img data-aos="fade-down" data-aos-delay="300" src="/Ai Generative happy business man in a suit white…_prev_ui.png" className='md:h-[620px] lg:h-[900px] md:w-[1500px] h-[420px] w-fit object-cover bg-transparent'/></div>
+        <div className='items-center m-auto'><img data-aos="fade-down" data-aos-delay="300" src="/Ai Generative happy business man in a suit white…_prev_ui.png" className='md:h-[620px] lg:h-[900px] md:w-[1500px] h-[200px] w-fit object-cover bg-transparent'/></div>
       </div>
       <div className='mt-32'>
 
