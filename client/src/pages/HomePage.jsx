@@ -13,14 +13,14 @@ const HomePage = () => {
         {/* grid section col 1 */}
 
         <div className='font-bold lg:text-4xl font-sans'>
-          <h1 data-aos="fade-down" data-aos-delay="200" className='md:text-2xl lg:text-4xl text-blue-400 md:pb-25 pb-14'>Empowering Communities One data Point at a Time</h1>
+          <h1 data-aos="fade-down" data-aos-delay="200" className='md:text-2xl lg:text-4xl text-blue-600 md:pb-25 pb-14'>Empowering Communities One data Point at a Time</h1>
           <p className='text-white font-serif text-[15px] md:text-2xl lg:text-4xl'  data-aos="zoom-in" data-aos-delay="400">in an era where every number tells a story, our platform empowers governments, NGOs, and local leaders with the insights they need to make a real difference. By capturing individual income records, mapping social backgrounds, and classifying vulnerability levels, we turn raw data into targeted action plans. This holistic view uncovers hidden pockets of need, guides resource allocation, and measures the impact of every program. Together, we build a future where no one is left behind—because when we track the real numbers, we unlock real change.</p>
           
         </div>
 
         {/* grid section col 2 */}
 
-        <div className='items-center m-auto'><img data-aos="fade-down" data-aos-delay="300" src="/Ai Generative happy business man in a suit white…_prev_ui.png" className='md:h-[620px] lg:h-[900px] md:w-[1500px] h-[200px] w-fit object-cover bg-transparent'/></div>
+        <div className='items-center m-auto'><img data-aos="fade-down" data-aos-delay="300" src="/Ai Generative happy business man in a suit white…_prev_ui.png" className='md:h-[620px] lg:h-[900px] md:w-[1500px] h-[420px]  w-fit object-cover bg-transparent'/></div>
       </div>
       <div className='mt-32'>
 
