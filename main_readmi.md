@@ -5,8 +5,7 @@ A data-driven platform for collecting, analyzing and visualizing individual inco
 
 ## Presentation Link
 
-https://1drv.ms/p/c/d84f9ba3ccf129c7/EakItoPMSw1JkVae_5NzOq8BTBTkXv-XSiqXKeVd3OTqLg?e=3Vulv8
-
+https://the-poverty-line-project-8s5o-pb8m01s8d-ken-roberts-projects.vercel.app/
 
 ## Repository Structure
 /
