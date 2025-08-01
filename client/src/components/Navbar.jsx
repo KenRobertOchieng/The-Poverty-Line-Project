@@ -33,6 +33,7 @@ const Navbar = () => {
   return (
     <nav style={{
       width: '100%',
+      fontSize: '27px',
       background: 'linear-gradient(90deg, #0f2027 0%, #2c5364 100%)',
       boxShadow:  '0 2px 8px rgba(44,83,100,0.15)',
       padding:    '0.75rem 2rem',
@@ -50,7 +51,7 @@ const Navbar = () => {
           to={leftLink.to}
           style={{
             color:    location.pathname === leftLink.to ? '#fbbf24' : '#fff',
-            fontSize: '1.2rem',
+            fontSize: '27px',
             fontWeight: 'bold',
             textDecoration: 'none',
           }}
@@ -89,6 +90,7 @@ const Navbar = () => {
               onClick={handleLogout}
               style={{
                 background: 'transparent',
+                fontSize :'27px',
                 border:     '2px solid #fff',
                 borderRadius: '6px',
                 color:        '#fff',
