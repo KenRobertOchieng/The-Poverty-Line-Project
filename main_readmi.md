@@ -2,6 +2,12 @@
 
 A data-driven platform for collecting, analyzing and visualizing individual income and poverty data to empower governments, NGOs and community leaders with actionable insights.
 
+
+## Presentation Link
+
+https://1drv.ms/p/c/d84f9ba3ccf129c7/EakItoPMSw1JkVae_5NzOq8BTBTkXv-XSiqXKeVd3OTqLg?e=3Vulv8
+
+
 ## Repository Structure
 /
 ├── client/ # React & Vite frontend (see client/backend_readmi.md)
