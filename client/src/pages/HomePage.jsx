@@ -91,7 +91,7 @@ const HomePage = () => {
       </div>
       <div>
         {/* about team section */}
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-10 py-24'>
           {/* card sections */}
 
           <div data-aos="fade-down" data-aos-delay="100" className='w-full h-[400px] rounded-4xl bg-cyan-900'><img className='rounded-[100%] m-auto h-[190px] -translate-y-14 animate-pulse bg-transparent' src="/138e43db-bdc7-4d91-ad5f-6a037b0cae73_prev_ui.png" alt=""/><p className='text-center md:text-2xl py-20 text-amber-50'>Stevo SimpleBoy</p></div>
